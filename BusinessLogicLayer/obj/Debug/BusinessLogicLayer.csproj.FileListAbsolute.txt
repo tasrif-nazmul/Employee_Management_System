@@ -1,0 +1,14 @@
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\AutoMapper.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\EntityFramework.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\AutoMapper.xml
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\EntityFramework.xml
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.AssemblyReference.cache
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

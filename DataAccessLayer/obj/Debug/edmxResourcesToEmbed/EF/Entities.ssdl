@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Entities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AttendanceRecords">
+    <Key>
+      <PropertyRef Name="AttendanceID" />
+    </Key>
+    <Property Name="AttendanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="EntryDateTime" Type="datetime" />
+    <Property Name="ExitDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="varchar" MaxLength="50" />
+    <Property Name="TeamLeaderID" Type="int" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="DepartmentID" Type="int" />
+    <Property Name="Position" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LeaveRequests">
+    <Key>
+      <PropertyRef Name="LeaveRequestID" />
+    </Key>
+    <Property Name="LeaveRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="LeaveType" Type="varchar" MaxLength="20" />
+    <Property Name="LeaveStartDate" Type="date" />
+    <Property Name="LeaveEndDate" Type="date" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PerformanceReviews">
+    <Key>
+      <PropertyRef Name="ReviewID" />
+    </Key>
+    <Property Name="ReviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="ReviewDate" Type="date" />
+    <Property Name="ReviewerID" Type="int" />
+    <Property Name="Feedback" Type="text" />
+    <Property Name="Rating" Type="decimal" Precision="3" Scale="1" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskName" Type="varchar" MaxLength="100" />
+    <Property Name="Description" Type="text" />
+    <Property Name="DueDate" Type="date" />
+    <Property Name="AssignedToID" Type="int" />
+    <Property Name="AssignedByID" Type="int" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="Priority" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_AttendanceRecords_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="AttendanceRecords" Type="Self.AttendanceRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="AttendanceRecords">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departments_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="TeamLeaderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Departments">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveRequests_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="LeaveRequests" Type="Self.LeaveRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="LeaveRequests">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerformanceReviews_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="PerformanceReviews" Type="Self.PerformanceReviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="PerformanceReviews">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerformanceReviews_Reviewers">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="PerformanceReviews" Type="Self.PerformanceReviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="PerformanceReviews">
+        <PropertyRef Name="ReviewerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Employees_AssignedBy">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="AssignedByID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Employees_AssignedTo">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="AssignedToID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EntitiesStoreContainer">
+    <EntitySet Name="AttendanceRecords" EntityType="Self.AttendanceRecords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveRequests" EntityType="Self.LeaveRequests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PerformanceReviews" EntityType="Self.PerformanceReviews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AttendanceRecords_Employees" Association="Self.FK_AttendanceRecords_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="AttendanceRecords" EntitySet="AttendanceRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departments_Employees" Association="Self.FK_Departments_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Departments" Association="Self.FK_Employees_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveRequests_Employees" Association="Self.FK_LeaveRequests_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="LeaveRequests" EntitySet="LeaveRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerformanceReviews_Employees" Association="Self.FK_PerformanceReviews_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="PerformanceReviews" EntitySet="PerformanceReviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerformanceReviews_Reviewers" Association="Self.FK_PerformanceReviews_Reviewers">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="PerformanceReviews" EntitySet="PerformanceReviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Employees_AssignedBy" Association="Self.FK_Tasks_Employees_AssignedBy">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Employees_AssignedTo" Association="Self.FK_Tasks_Employees_AssignedTo">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
