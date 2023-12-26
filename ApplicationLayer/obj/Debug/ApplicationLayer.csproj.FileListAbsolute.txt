@@ -59,6 +59,7 @@ E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\System.Net.
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\System.Web.Http.dll
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\System.Web.Http.WebHost.dll
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\DataAccessLayer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\AutoMapper.dll
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\BusinessLogicLayer.pdb
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\EntityFramework.xml
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\EntityFramework.SqlServer.xml
@@ -69,10 +70,9 @@ E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\System.Web.
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\DataAccessLayer.pdb
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\DataAccessLayer.dll.config
+E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\AutoMapper.xml
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\obj\Debug\ApplicationLayer.csproj.AssemblyReference.cache
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\obj\Debug\ApplicationLayer.csproj.CoreCompileInputs.cache
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\obj\Debug\ApplicationLayer.csproj.CopyComplete
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\obj\Debug\ApplicationLayer.dll
 E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\obj\Debug\ApplicationLayer.pdb
-E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\AutoMapper.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\ApplicationLayer\bin\AutoMapper.xml

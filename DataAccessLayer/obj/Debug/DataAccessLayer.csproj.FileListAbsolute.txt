@@ -10,5 +10,3 @@ E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAc
 E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.InitialCreate.resources
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.GenerateResource.cache

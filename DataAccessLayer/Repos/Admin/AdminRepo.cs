@@ -1,5 +1,4 @@
 ﻿using DataAccessLayer.EF;
-using DataAccessLayer.EF.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +8,7 @@ namespace DataAccessLayer.Repos.Admin
     {
         public static List<Employee> GetAll()
         {
-              var db = new DatabaseContext();
+              var db = new EmployeeManagementEntities();
             
              return db.Employees.ToList();
 

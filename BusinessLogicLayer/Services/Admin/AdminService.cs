@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using DataAccessLayer.EF;
 using DataAccessLayer.Repos.Admin;
 using BusinessLogicLayer.DTOs.AdminDTOs;
-using DataAccessLayer.EF.Models;
 
 namespace BusinessLogicLayer.Services.Admin
 {
