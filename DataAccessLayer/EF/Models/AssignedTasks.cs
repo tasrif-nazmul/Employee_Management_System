@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,11 @@ namespace DataAccessLayer.EF.Models
         public string Status { get; set; }
         public string Priority { get; set; }
 
-        // Foreign keys and navigation properties for task assignments
+        [ForeignKey("AssignedTo")]
         public int AssignedToID { get; set; }
         public virtual Employee AssignedTo { get; set; }
 
+        [ForeignKey("AssignedBy")]
         public int AssignedByID { get; set; }
         public virtual Employee AssignedBy { get; set; }
     }
