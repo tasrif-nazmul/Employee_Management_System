@@ -53,72 +53,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\AttendanceRecord.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
+    <Compile Include="EF\Models\AttendenceRecord.cs" />
+    <Compile Include="EF\Models\Department.cs" />
+    <Compile Include="EF\Models\Employee.cs" />
+    <Compile Include="EF\Models\LeaveRequest.cs" />
+    <Compile Include="EF\Models\PerformanceReview.cs" />
+    <Compile Include="EF\Models\AssignedTasks.cs" />
+    <Compile Include="EF\DatabaseContext.cs" />
+    <Compile Include="Migrations\202312260026583_InitialCreate.cs" />
+    <Compile Include="Migrations\202312260026583_InitialCreate.designer.cs">
+      <DependentUpon>202312260026583_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="EF\Department.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Employee.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Entities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Entities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Entities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entities.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="EF\LeaveRequest.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\PerformanceReview.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Task.cs">
-      <DependentUpon>Entities.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\Admin\AdminRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="EF\Entities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Entities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="EF\Entities.edmx.diagram">
-      <DependentUpon>Entities.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EF\Entities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Entities.edmx</DependentUpon>
-      <LastGenOutput>Entities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EF\Entities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Entities.edmx</DependentUpon>
-      <LastGenOutput>Entities.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Repos\Employee\" />
     <Folder Include="Repos\Manager\" />
     <Folder Include="Repos\TeamLeader\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202312260026583_InitialCreate.resx">
+      <DependentUpon>202312260026583_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using DataAccessLayer.EF;
 using DataAccessLayer.Repos.Admin;
 using BusinessLogicLayer.DTOs.AdminDTOs;
+using DataAccessLayer.EF.Models;
 
 namespace BusinessLogicLayer.Services.Admin
 {
@@ -17,11 +18,12 @@ namespace BusinessLogicLayer.Services.Admin
         public static List<AdminDTO> GetAll()
         {
             var data = AdminRepo.GetAll();
-            var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Employee, AdminDTO>();
+           var config = new MapperConfiguration(cfg => {
+               cfg.CreateMap<Employee, AdminDTO>();
             });
-            var mapper = new Mapper(config);
+           var mapper = new Mapper(config);
             return mapper.Map<List<AdminDTO>>(data);
+
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using DataAccessLayer.EF;
-using System;
+using DataAccessLayer.EF.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repos.Admin
 {
@@ -11,9 +9,21 @@ namespace DataAccessLayer.Repos.Admin
     {
         public static List<Employee> GetAll()
         {
-            var db = new EmployeeManagementSystemEntities();
-            return db.Employees.ToList();
+              var db = new DatabaseContext();
+            
+             return db.Employees.ToList();
 
+         /*   var bigCities = new List<string>()
+                    {
+                        "New York",
+                        "London",
+                        "Mumbai",
+                        "Chicago"
+                    };
+
+            return bigCities;
+         
+            */
         }
     }
 }
