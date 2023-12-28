@@ -12,7 +12,7 @@ namespace ApplicationLayer.Controllers.Admin
     public class AdminController : ApiController
     {
         [HttpGet]
-        [Route("api/admin/all")]
+        [Route("api/admin/all-employees")]
         public HttpResponseMessage GetAll()
         {
             try
