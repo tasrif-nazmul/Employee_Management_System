@@ -1,0 +1,12 @@
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\bin\Debug\EntityFramework.dll
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\bin\Debug\EntityFramework.xml
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

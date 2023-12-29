@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\AdminDTOs\AdminDTO.cs" />
+    <Compile Include="DTOs\EmployeeDTOs\LeaveRequestDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Admin\AdminService.cs" />
+    <Compile Include="Services\EmployeeServices\LeaveRequestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
@@ -58,10 +60,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTOs\EmployeeDTOs\" />
     <Folder Include="DTOs\ManaagerDTOs\" />
     <Folder Include="DTOs\TeamLeaderDTOs\" />
-    <Folder Include="Services\Employee\" />
     <Folder Include="Services\Manager\" />
     <Folder Include="Services\TeamLeader\" />
   </ItemGroup>

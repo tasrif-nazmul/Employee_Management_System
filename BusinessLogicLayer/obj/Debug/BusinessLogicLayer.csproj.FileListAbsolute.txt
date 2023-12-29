@@ -1,0 +1,14 @@
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\bin\Debug\AutoMapper.dll
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\bin\Debug\EntityFramework.dll
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\bin\Debug\AutoMapper.xml
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\bin\Debug\EntityFramework.xml
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.AssemblyReference.cache
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\Semester\Semester 11\Dot net\EMS\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
