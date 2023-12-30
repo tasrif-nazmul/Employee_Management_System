@@ -19,6 +19,10 @@ namespace DataAccessLayer
         {
             return new AttendanceRepo();
         }
+        public static ITask<AssignedTask,int,bool> AssignedTaskData()
+        {
+            return new AssignedTaskRepo();
+        }
 
     }
 }

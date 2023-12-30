@@ -41,7 +41,7 @@ namespace DataAccessLayer.Repos.EmployeeRepos
 
         public List<LeaveRequest> GetAll()
         {
-            return db.LeaveRequests.ToList();
+            return db.LeaveRequests.ToList(); //to be implement specific own Leave history
         }
 
         public bool Update(LeaveRequest obj)
