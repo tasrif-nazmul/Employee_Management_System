@@ -95,6 +95,7 @@
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\EmployeeControllers\AttendanceController.cs" />
     <Compile Include="Controllers\EmployeeControllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ManegerControllers\LeaveHandelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -111,7 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Manager\" />
     <Folder Include="Controllers\TeamLeader\" />
     <Folder Include="Models\" />
   </ItemGroup>

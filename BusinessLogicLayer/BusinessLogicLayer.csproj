@@ -51,6 +51,7 @@
     <Compile Include="Services\Admin\AdminService.cs" />
     <Compile Include="Services\EmployeeServices\AttendanceService.cs" />
     <Compile Include="Services\EmployeeServices\LeaveRequestService.cs" />
+    <Compile Include="Services\ManegerServices\LeaveHandelService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
@@ -62,9 +63,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTOs\ManaagerDTOs\" />
+    <Folder Include="DTOs\ManegerDTOs\" />
     <Folder Include="DTOs\TeamLeaderDTOs\" />
-    <Folder Include="Services\Manager\" />
     <Folder Include="Services\TeamLeader\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

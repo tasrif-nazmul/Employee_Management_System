@@ -10,3 +10,15 @@ E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\obj\Debug\DataAccessLayer.cs
 E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 E:\Semester\Semester 11\Dot net\EMS\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\gggg\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+D:\gggg\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\gggg\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\gggg\DataAccessLayer\bin\Debug\EntityFramework.dll
+D:\gggg\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\gggg\DataAccessLayer\bin\Debug\EntityFramework.xml
+D:\gggg\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\gggg\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+D:\gggg\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\gggg\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+D:\gggg\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\gggg\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
