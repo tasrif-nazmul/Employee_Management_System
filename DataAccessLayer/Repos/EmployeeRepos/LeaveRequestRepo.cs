@@ -12,7 +12,16 @@ namespace DataAccessLayer.Repos.EmployeeRepos
     {
         public bool Create(LeaveRequest obj)
         {
-            db.LeaveRequests.Add(obj);
+            // Create a new LeaveRequest object
+            LeaveRequest newLeaveRequest = new LeaveRequest
+            {
+                EmployeeID = obj.EmployeeID,
+                LeaveType = obj.LeaveType,
+                LeaveStartDate = obj.LeaveStartDate,
+                LeaveEndDate = obj.LeaveEndDate,
+                Status = "Pending"
+            };
+            db.LeaveRequests.Add(newLeaveRequest);
             return db.SaveChanges() > 0;
         }
 

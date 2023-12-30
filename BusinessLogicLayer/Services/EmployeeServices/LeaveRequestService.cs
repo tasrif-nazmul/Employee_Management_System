@@ -50,5 +50,10 @@ namespace BusinessLogicLayer.Services.EmployeeServices
             var mapped = mapper.Map<LeaveRequestDTO>(data);
             return mapped;
         }
+
+        public static bool delete(int id)
+        {
+            return DataAccessFactory.LeaveReqData().Delete(id);
+        }
     }
 }

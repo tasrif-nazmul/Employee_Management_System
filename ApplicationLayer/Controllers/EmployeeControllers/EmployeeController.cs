@@ -59,5 +59,22 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
             }
         }
+
+        [HttpDelete]
+        [Route("api/employee/leave-request/delete/{id}")]
+        public HttpResponseMessage Delete(int id)
+        {
+            try
+            {
+                var data = LeaveRequestService.delete(id);
+                return Request.CreateResponse(HttpStatusCode.OK, new { message = "Deleted Successfully" });
+                
+                
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
     }
 }
