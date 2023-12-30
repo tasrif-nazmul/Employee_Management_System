@@ -33,26 +33,26 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             }
         }
         
-        [HttpPost]
-        [Route("api/employee/attendance/entry")]
-        public HttpResponseMessage CreateExitAttendance(AttendanceRecordsDTO obj)
-        {
-            try
-            {
-                if (obj == null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Please put data" });
-                }
-                else
-                {
-                    var data = AttendanceService.CreateEntry(obj);
-                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Attendance Successfully" });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
-            }
-        }
+        //[HttpPost]
+        //[Route("api/employee/attendance/exit")]
+        //public HttpResponseMessage CreateExitAttendance(AttendanceRecordsDTO obj)
+        //{
+        //    try
+        //    {
+        //        if (obj == null)
+        //        {
+        //            return Request.CreateResponse(HttpStatusCode.OK, new { message = "Please put data" });
+        //        }
+        //        else
+        //        {
+        //            var data = AttendanceService.CreateEntry(obj);
+        //            return Request.CreateResponse(HttpStatusCode.OK, new { message = "Attendance Successfully" });
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+        //    }
+        //}
     }
 }
