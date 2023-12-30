@@ -3,14 +3,14 @@
 
 # OS generated files #
 ----------------------
-[Dd]ebug/
-[Rr]elease/
+\[Dd]ebug
+\[Rr]elease
 x64/
 x86/
-[Bb]in/
-[Oo]bj/
-[Ll]ogs/
-[Ll]og/
+\[Bb]in
+\[Oo]bj
+\[Ll]ogs
+\[Ll]og
 [Tt]est[Rr]esult*/
 
 # User-specific files #
