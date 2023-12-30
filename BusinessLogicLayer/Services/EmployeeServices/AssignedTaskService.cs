@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessLogicLayer.DTOs.EmployeeDTOs;
 using DataAccessLayer;
+using DataAccessLayer.DAF;
 using DataAccessLayer.EF;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace BusinessLogicLayer.Services.EmployeeServices
     {
         public static List<AssignedTaskDTO> GetAll()
         {
-            var data = DataAccessFactory.AssignedTaskData().GetAll();
+            var data = EmployeeDAF.AssignedTaskData().GetAll();
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<AssignedTask, AssignedTaskDTO>();
@@ -26,7 +27,7 @@ namespace BusinessLogicLayer.Services.EmployeeServices
 
         public static AssignedTaskDTO Get(int id)
         {
-            var data = DataAccessFactory.AssignedTaskData().Get(id);
+            var data = EmployeeDAF.AssignedTaskData().Get(id);
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<AssignedTask, AssignedTaskDTO>();
@@ -39,15 +40,15 @@ namespace BusinessLogicLayer.Services.EmployeeServices
 
         public static bool Received(int id, AssignedTaskDTO obj)
         {
-            var exdata = DataAccessFactory.AssignedTaskData().Get(id);
+            var exdata = EmployeeDAF.AssignedTaskData().Get(id);
             exdata.Status = "In Progress";
-            return DataAccessFactory.AssignedTaskData().TaskHandle(exdata);
+            return EmployeeDAF.AssignedTaskData().TaskHandle(exdata);
         } 
         public static bool Submit(int id, AssignedTaskDTO obj)
         {
-            var exdata = DataAccessFactory.AssignedTaskData().Get(id);
+            var exdata = EmployeeDAF.AssignedTaskData().Get(id);
             exdata.Status = "Completed";
-            return DataAccessFactory.AssignedTaskData().TaskHandle(exdata);
+            return EmployeeDAF.AssignedTaskData().TaskHandle(exdata);
         }
     }
 }

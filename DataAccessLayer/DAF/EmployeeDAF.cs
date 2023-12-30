@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer
+namespace DataAccessLayer.DAF
 {
-    public class DataAccessFactory
+    public class EmployeeDAF
     {
         public static ILeaveReq<LeaveRequest, int, bool> LeaveReqData()
         {
@@ -19,10 +19,9 @@ namespace DataAccessLayer
         {
             return new AttendanceRepo();
         }
-        public static ITask<AssignedTask,int,bool> AssignedTaskData()
+        public static ITask<AssignedTask, int, bool> AssignedTaskData()
         {
             return new AssignedTaskRepo();
         }
-
     }
 }

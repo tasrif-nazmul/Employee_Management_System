@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer.DAF;
 
 namespace BusinessLogicLayer.Services.EmployeeServices
 {
@@ -21,7 +22,7 @@ namespace BusinessLogicLayer.Services.EmployeeServices
 
             var mapper = new Mapper(config);
             var data = mapper.Map<AttendanceRecord>(obj);
-            return DataAccessFactory.AttendanceData().CreateEntry(data);
+            return EmployeeDAF.AttendanceData().CreateEntry(data);
         }
     }
 }

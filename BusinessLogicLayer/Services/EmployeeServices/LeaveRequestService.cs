@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessLogicLayer.DTOs.EmployeeDTOs;
 using DataAccessLayer;
+using DataAccessLayer.DAF;
 using DataAccessLayer.EF;
 using DataAccessLayer.Repos.EmployeeRepos;
 using System;
@@ -22,12 +23,12 @@ namespace BusinessLogicLayer.Services.EmployeeServices
 
             var mapper = new Mapper(config);
             var data = mapper.Map<LeaveRequest>(lr);
-            return DataAccessFactory.LeaveReqData().Create(data);
+            return EmployeeDAF.LeaveReqData().Create(data);
         }
 
         public static List<LeaveRequestDTO> GetAll()
         {
-            var data = DataAccessFactory.LeaveReqData().GetAll();
+            var data = EmployeeDAF.LeaveReqData().GetAll();
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<LeaveRequest, LeaveRequestDTO>();
@@ -40,7 +41,7 @@ namespace BusinessLogicLayer.Services.EmployeeServices
 
         public static LeaveRequestDTO Get(int id)
         {
-            var data = DataAccessFactory.LeaveReqData().Get(id);
+            var data = EmployeeDAF.LeaveReqData().Get(id);
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<LeaveRequest, LeaveRequestDTO>();
@@ -53,12 +54,12 @@ namespace BusinessLogicLayer.Services.EmployeeServices
 
         public static bool delete(int id)
         {
-            return DataAccessFactory.LeaveReqData().Delete(id);
+            return EmployeeDAF.LeaveReqData().Delete(id);
         }
 
         public static bool update(int id, LeaveRequestDTO obj)
         {
-            var exdata = DataAccessFactory.LeaveReqData().Get(id);
+            var exdata = EmployeeDAF.LeaveReqData().Get(id);
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<LeaveRequestDTO, LeaveRequest>();
@@ -70,7 +71,7 @@ namespace BusinessLogicLayer.Services.EmployeeServices
             exdata.LeaveType = obj.LeaveType;
             exdata.LeaveStartDate = obj.LeaveStartDate;
             exdata.LeaveEndDate = obj.LeaveEndDate;
-            return DataAccessFactory.LeaveReqData().Update(exdata);
+            return EmployeeDAF.LeaveReqData().Update(exdata);
         }
     }
 }
