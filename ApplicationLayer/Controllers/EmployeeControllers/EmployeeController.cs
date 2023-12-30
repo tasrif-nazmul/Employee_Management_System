@@ -60,6 +60,30 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             }
         }
 
+        [HttpPut]
+        [Route("api/employee/leave-request/update/{id}")]
+        public HttpResponseMessage Update(int id, LeaveRequestDTO obj)
+        {
+            try
+            {
+
+                if(obj == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Please put data" });
+                }
+                else
+                {
+                    LeaveRequestService.update(id, obj);
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Updated Successfully" });
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+        
         [HttpDelete]
         [Route("api/employee/leave-request/delete/{id}")]
         public HttpResponseMessage Delete(int id)
@@ -68,13 +92,15 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             {
                 var data = LeaveRequestService.delete(id);
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "Deleted Successfully" });
-                
-                
+               
             }
             catch (Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
             }
         }
+
+        //Attendance Records
+        
     }
 }

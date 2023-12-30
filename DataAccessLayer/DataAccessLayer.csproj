@@ -87,9 +87,11 @@
     <Compile Include="EF\Task.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAttendance.cs" />
     <Compile Include="Interfaces\ILeaveReq.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\Admin\AdminRepo.cs" />
+    <Compile Include="Repos\EmployeeRepos\AttendanceRepo.cs" />
     <Compile Include="Repos\EmployeeRepos\LeaveRequestRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
   </ItemGroup>

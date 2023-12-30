@@ -55,5 +55,22 @@ namespace BusinessLogicLayer.Services.EmployeeServices
         {
             return DataAccessFactory.LeaveReqData().Delete(id);
         }
+
+        public static bool update(int id, LeaveRequestDTO obj)
+        {
+            var exdata = DataAccessFactory.LeaveReqData().Get(id);
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<LeaveRequestDTO, LeaveRequest>();
+            });
+
+            var mapper = new Mapper(config);
+            var data = mapper.Map<LeaveRequest>(obj);
+            exdata.EmployeeID = obj.EmployeeID;
+            exdata.LeaveType = obj.LeaveType;
+            exdata.LeaveStartDate = obj.LeaveStartDate;
+            exdata.LeaveEndDate = obj.LeaveEndDate;
+            return DataAccessFactory.LeaveReqData().Update(exdata);
+        }
     }
 }

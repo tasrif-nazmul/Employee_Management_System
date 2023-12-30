@@ -15,5 +15,10 @@ namespace DataAccessLayer
         {
             return new LeaveRequestRepo();
         }
+        public static IAttendance<AttendanceRecord, bool> AttendanceData()
+        {
+            return new AttendanceRepo();
+        }
+
     }
 }
