@@ -45,10 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\AdminDTOs\AdminDTO.cs" />
+    <Compile Include="DTOs\EmployeeDTOs\AssignedTaskDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\AttendanceRecordsDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\LeaveRequestDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Admin\AdminService.cs" />
+    <Compile Include="Services\EmployeeServices\AssignedTaskService.cs" />
     <Compile Include="Services\EmployeeServices\AttendanceService.cs" />
     <Compile Include="Services\EmployeeServices\LeaveRequestService.cs" />
   </ItemGroup>

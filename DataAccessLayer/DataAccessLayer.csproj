@@ -92,8 +92,10 @@
     </Compile>
     <Compile Include="Interfaces\IAttendance.cs" />
     <Compile Include="Interfaces\ILeaveReq.cs" />
+    <Compile Include="Interfaces\ITask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\Admin\AdminRepo.cs" />
+    <Compile Include="Repos\EmployeeRepos\AssignedTaskRepo.cs" />
     <Compile Include="Repos\EmployeeRepos\AttendanceRepo.cs" />
     <Compile Include="Repos\EmployeeRepos\LeaveRequestRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
