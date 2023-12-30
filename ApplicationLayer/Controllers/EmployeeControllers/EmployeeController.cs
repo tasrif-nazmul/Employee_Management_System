@@ -11,7 +11,7 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
 {
     public class EmployeeController : ApiController
     {
-        [HttpGet]
+        [HttpPost]
         [Route("api/employee/leave-request/create")]
         public HttpResponseMessage CreateLeaveReq(LeaveRequestDTO lr)
         {
@@ -21,6 +21,40 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
                 return Request.CreateResponse(HttpStatusCode.OK, new {message="Created Successfully"});
             }
             catch(Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/employee/leave-request/list")]
+        public HttpResponseMessage GetLeaveReqs()
+        {
+            try
+            {
+                var data = LeaveRequestService.GetAll();
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/employee/leave-request/{id}")]
+        public HttpResponseMessage GetLeaveReq(int id)
+        {
+            try
+            {
+                var data = LeaveRequestService.Get(id);
+                if(data != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, data);
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, new {message="Data not found"});
+            }
+            catch (Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
             }

@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.EF;
+using DataAccessLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,19 +8,35 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repos.EmployeeRepos
 {
-    public class LeaveRequestRepo
+    internal class LeaveRequestRepo : Repo, ILeaveReq<LeaveRequest, int, bool>
     {
-        public static bool Create(LeaveRequest lr)
+        public bool Create(LeaveRequest obj)
         {
-            var db = new EmployeeManagementEntities();
-            db.LeaveRequests.Add(lr);
+            db.LeaveRequests.Add(obj);
             return db.SaveChanges() > 0;
         }
 
-        public static List<LeaveRequest> GetAll()
+        public bool Delete(int id)
         {
-            var db = new EmployeeManagementEntities();
+            var ex = db.LeaveRequests.Find(id);
+            db.LeaveRequests.Remove(ex);
+            return db.SaveChanges() > 0;
+        }
+
+        public LeaveRequest Get(int id)
+        {
+            return db.LeaveRequests.Find(id);
+
+        }
+
+        public List<LeaveRequest> GetAll()
+        {
             return db.LeaveRequests.ToList();
+        }
+
+        public bool Update(LeaveRequest obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
