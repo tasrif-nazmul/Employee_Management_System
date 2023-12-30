@@ -9,10 +9,10 @@ namespace DataAccessLayer.Repos
 {
     internal class Repo
     {
-        internal EmployeeManagementEntities db;
+        internal EmployeeManagementEntities1 db;
         internal Repo()
         {
-            db = new EmployeeManagementEntities();
+            db = new EmployeeManagementEntities1();
         }
     }
 }

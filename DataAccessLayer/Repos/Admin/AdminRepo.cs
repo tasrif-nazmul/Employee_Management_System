@@ -8,7 +8,7 @@ namespace DataAccessLayer.Repos.Admin
     {
         public static List<Employee> GetAll()
         {
-              var db = new EmployeeManagementEntities();
+              var db = new EmployeeManagementEntities1();
             
              return db.Employees.ToList();
 

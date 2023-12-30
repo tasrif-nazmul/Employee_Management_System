@@ -17,13 +17,13 @@ namespace DataAccessLayer.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
+            this.AssignedTasks = new HashSet<AssignedTask>();
+            this.AssignedTasks1 = new HashSet<AssignedTask>();
             this.AttendanceRecords = new HashSet<AttendanceRecord>();
             this.Departments = new HashSet<Department>();
             this.LeaveRequests = new HashSet<LeaveRequest>();
             this.PerformanceReviews = new HashSet<PerformanceReview>();
             this.PerformanceReviews1 = new HashSet<PerformanceReview>();
-            this.Tasks = new HashSet<Task>();
-            this.Tasks1 = new HashSet<Task>();
         }
     
         public int EmployeeID { get; set; }
@@ -33,6 +33,10 @@ namespace DataAccessLayer.EF
         public Nullable<int> DepartmentID { get; set; }
         public string Position { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AssignedTask> AssignedTasks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AssignedTask> AssignedTasks1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AttendanceRecord> AttendanceRecords { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -44,9 +48,5 @@ namespace DataAccessLayer.EF
         public virtual ICollection<PerformanceReview> PerformanceReviews { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceReview> PerformanceReviews1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Task> Tasks { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Task> Tasks1 { get; set; }
     }
 }

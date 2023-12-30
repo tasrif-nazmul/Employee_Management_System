@@ -13,10 +13,10 @@ namespace DataAccessLayer.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EmployeeManagementEntities : DbContext
+    public partial class EmployeeManagementEntities1 : DbContext
     {
-        public EmployeeManagementEntities()
-            : base("name=EmployeeManagementEntities")
+        public EmployeeManagementEntities1()
+            : base("name=EmployeeManagementEntities1")
         {
         }
     
@@ -25,11 +25,12 @@ namespace DataAccessLayer.EF
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AssignedTask> AssignedTasks { get; set; }
         public virtual DbSet<AttendanceRecord> AttendanceRecords { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<LeaveRequest> LeaveRequests { get; set; }
         public virtual DbSet<PerformanceReview> PerformanceReviews { get; set; }
-        public virtual DbSet<Task> Tasks { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

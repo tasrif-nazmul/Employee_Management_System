@@ -5,6 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="EmployeeManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssignedTask">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskName" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="text" />
+          <Property Name="DueDate" Type="date" />
+          <Property Name="AssignedToID" Type="int" />
+          <Property Name="AssignedByID" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Priority" Type="varchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="AttendanceRecords">
           <Key>
             <PropertyRef Name="AttendanceID" />
@@ -55,18 +68,23 @@
           <Property Name="Feedback" Type="text" />
           <Property Name="Rating" Type="decimal" Precision="3" Scale="1" />
         </EntityType>
-        <EntityType Name="Tasks">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="database_firewall_rules">
           <Key>
-            <PropertyRef Name="TaskID" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
           </Key>
-          <Property Name="TaskID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TaskName" Type="varchar" MaxLength="100" />
-          <Property Name="Description" Type="text" />
-          <Property Name="DueDate" Type="date" />
-          <Property Name="AssignedToID" Type="int" />
-          <Property Name="AssignedByID" Type="int" />
-          <Property Name="Status" Type="varchar" MaxLength="20" />
-          <Property Name="Priority" Type="varchar" MaxLength="20" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_AttendanceRecords_Employees">
           <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
@@ -142,35 +160,45 @@
         </Association>
         <Association Name="FK_Tasks_Employees_AssignedBy">
           <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
-          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <End Role="AssignedTask" Type="Self.AssignedTask" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
               <PropertyRef Name="EmployeeID" />
             </Principal>
-            <Dependent Role="Tasks">
+            <Dependent Role="AssignedTask">
               <PropertyRef Name="AssignedByID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tasks_Employees_AssignedTo">
           <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
-          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <End Role="AssignedTask" Type="Self.AssignedTask" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
               <PropertyRef Name="EmployeeID" />
             </Principal>
-            <Dependent Role="Tasks">
+            <Dependent Role="AssignedTask">
               <PropertyRef Name="AssignedToID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EmployeeManagementModelStoreContainer">
+          <EntitySet Name="AssignedTask" EntityType="Self.AssignedTask" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AttendanceRecords" EntityType="Self.AttendanceRecords" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LeaveRequests" EntityType="Self.LeaveRequests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PerformanceReviews" EntityType="Self.PerformanceReviews" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_AttendanceRecords_Employees" Association="Self.FK_AttendanceRecords_Employees">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="AttendanceRecords" EntitySet="AttendanceRecords" />
@@ -197,11 +225,11 @@
           </AssociationSet>
           <AssociationSet Name="FK_Tasks_Employees_AssignedBy" Association="Self.FK_Tasks_Employees_AssignedBy">
             <End Role="Employees" EntitySet="Employees" />
-            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="AssignedTask" EntitySet="AssignedTask" />
           </AssociationSet>
           <AssociationSet Name="FK_Tasks_Employees_AssignedTo" Association="Self.FK_Tasks_Employees_AssignedTo">
             <End Role="Employees" EntitySet="Employees" />
-            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="AssignedTask" EntitySet="AssignedTask" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -209,6 +237,21 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EmployeeManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AssignedTask">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DueDate" Type="DateTime" Precision="0" />
+          <Property Name="AssignedToID" Type="Int32" />
+          <Property Name="AssignedByID" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Priority" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Tasks_Employees_AssignedBy" FromRole="AssignedTask" ToRole="Employees" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK_Tasks_Employees_AssignedTo" FromRole="AssignedTask" ToRole="Employees" />
+        </EntityType>
         <EntityType Name="AttendanceRecord">
           <Key>
             <PropertyRef Name="AttendanceID" />
@@ -239,14 +282,14 @@
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="DepartmentID" Type="Int32" />
           <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AssignedTasks" Relationship="Self.FK_Tasks_Employees_AssignedBy" FromRole="Employees" ToRole="AssignedTask" />
+          <NavigationProperty Name="AssignedTasks1" Relationship="Self.FK_Tasks_Employees_AssignedTo" FromRole="Employees" ToRole="AssignedTask" />
           <NavigationProperty Name="AttendanceRecords" Relationship="Self.FK_AttendanceRecords_Employees" FromRole="Employees" ToRole="AttendanceRecords" />
           <NavigationProperty Name="Departments" Relationship="Self.FK_Departments_Employees" FromRole="Employees" ToRole="Departments" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Employees_Departments" FromRole="Employees" ToRole="Departments" />
           <NavigationProperty Name="LeaveRequests" Relationship="Self.FK_LeaveRequests_Employees" FromRole="Employees" ToRole="LeaveRequests" />
           <NavigationProperty Name="PerformanceReviews" Relationship="Self.FK_PerformanceReviews_Employees" FromRole="Employees" ToRole="PerformanceReviews" />
           <NavigationProperty Name="PerformanceReviews1" Relationship="Self.FK_PerformanceReviews_Reviewers" FromRole="Employees" ToRole="PerformanceReviews" />
-          <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Employees_AssignedBy" FromRole="Employees" ToRole="Tasks" />
-          <NavigationProperty Name="Tasks1" Relationship="Self.FK_Tasks_Employees_AssignedTo" FromRole="Employees" ToRole="Tasks" />
         </EntityType>
         <EntityType Name="LeaveRequest">
           <Key>
@@ -273,21 +316,46 @@
           <NavigationProperty Name="Employee" Relationship="Self.FK_PerformanceReviews_Employees" FromRole="PerformanceReviews" ToRole="Employees" />
           <NavigationProperty Name="Employee1" Relationship="Self.FK_PerformanceReviews_Reviewers" FromRole="PerformanceReviews" ToRole="Employees" />
         </EntityType>
-        <EntityType Name="Task">
+        <EntityType Name="database_firewall_rules">
           <Key>
-            <PropertyRef Name="TaskID" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
           </Key>
-          <Property Name="TaskID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TaskName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="DueDate" Type="DateTime" Precision="0" />
-          <Property Name="AssignedToID" Type="Int32" />
-          <Property Name="AssignedByID" Type="Int32" />
-          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Priority" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Tasks_Employees_AssignedBy" FromRole="Tasks" ToRole="Employees" />
-          <NavigationProperty Name="Employee1" Relationship="Self.FK_Tasks_Employees_AssignedTo" FromRole="Tasks" ToRole="Employees" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <Association Name="FK_Tasks_Employees_AssignedBy">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="AssignedTask" Type="Self.AssignedTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="AssignedTask">
+              <PropertyRef Name="AssignedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Employees_AssignedTo">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="AssignedTask" Type="Self.AssignedTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="AssignedTask">
+              <PropertyRef Name="AssignedToID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AttendanceRecords_Employees">
           <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="AttendanceRecords" Type="Self.AttendanceRecord" Multiplicity="*" />
@@ -360,37 +428,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Tasks_Employees_AssignedBy">
-          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="Tasks">
-              <PropertyRef Name="AssignedByID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tasks_Employees_AssignedTo">
-          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="Tasks">
-              <PropertyRef Name="AssignedToID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="EmployeeManagementEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EmployeeManagementEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AssignedTasks" EntityType="Self.AssignedTask" />
           <EntitySet Name="AttendanceRecords" EntityType="Self.AttendanceRecord" />
           <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="LeaveRequests" EntityType="Self.LeaveRequest" />
           <EntitySet Name="PerformanceReviews" EntityType="Self.PerformanceReview" />
-          <EntitySet Name="Tasks" EntityType="Self.Task" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+          <AssociationSet Name="FK_Tasks_Employees_AssignedBy" Association="Self.FK_Tasks_Employees_AssignedBy">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="AssignedTask" EntitySet="AssignedTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Employees_AssignedTo" Association="Self.FK_Tasks_Employees_AssignedTo">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="AssignedTask" EntitySet="AssignedTasks" />
+          </AssociationSet>
           <AssociationSet Name="FK_AttendanceRecords_Employees" Association="Self.FK_AttendanceRecords_Employees">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="AttendanceRecords" EntitySet="AttendanceRecords" />
@@ -415,21 +468,27 @@
             <End Role="Employees" EntitySet="Employees" />
             <End Role="PerformanceReviews" EntitySet="PerformanceReviews" />
           </AssociationSet>
-          <AssociationSet Name="FK_Tasks_Employees_AssignedBy" Association="Self.FK_Tasks_Employees_AssignedBy">
-            <End Role="Employees" EntitySet="Employees" />
-            <End Role="Tasks" EntitySet="Tasks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tasks_Employees_AssignedTo" Association="Self.FK_Tasks_Employees_AssignedTo">
-            <End Role="Employees" EntitySet="Employees" />
-            <End Role="Tasks" EntitySet="Tasks" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EmployeeManagementModelStoreContainer" CdmEntityContainer="EmployeeManagementEntities">
+        <EntityContainerMapping StorageEntityContainer="EmployeeManagementModelStoreContainer" CdmEntityContainer="EmployeeManagementEntities1">
+          <EntitySetMapping Name="AssignedTasks">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.AssignedTask">
+              <MappingFragment StoreEntitySet="AssignedTask">
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="AssignedToID" ColumnName="AssignedToID" />
+                <ScalarProperty Name="AssignedByID" ColumnName="AssignedByID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="AttendanceRecords">
             <EntityTypeMapping TypeName="EmployeeManagementModel.AttendanceRecord">
               <MappingFragment StoreEntitySet="AttendanceRecords">
@@ -485,17 +544,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tasks">
-            <EntityTypeMapping TypeName="EmployeeManagementModel.Task">
-              <MappingFragment StoreEntitySet="Tasks">
-                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
-                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-                <ScalarProperty Name="AssignedToID" ColumnName="AssignedToID" />
-                <ScalarProperty Name="AssignedByID" ColumnName="AssignedByID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -12,7 +12,7 @@ namespace DataAccessLayer.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Task
+    public partial class AssignedTask
     {
         public int TaskID { get; set; }
         public string TaskName { get; set; }
