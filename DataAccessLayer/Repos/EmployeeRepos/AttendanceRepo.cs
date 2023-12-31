@@ -2,6 +2,7 @@
 using DataAccessLayer.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,8 @@ namespace DataAccessLayer.Repos.EmployeeRepos
         }
         public bool CreateExit(AttendanceRecord obj)
         {
-            throw new NotImplementedException();
+            db.AttendanceRecords.AddOrUpdate(obj);
+            return db.SaveChanges() > 0;
         }
 
         

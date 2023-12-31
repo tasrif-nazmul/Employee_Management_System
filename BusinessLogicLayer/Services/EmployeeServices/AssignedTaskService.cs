@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogicLayer.DTOs.EmployeeDTOs;
+using BusinessLogicLayer.Services.Admin;
 using DataAccessLayer;
 using DataAccessLayer.DAF;
 using DataAccessLayer.EF;
@@ -35,6 +36,21 @@ namespace BusinessLogicLayer.Services.EmployeeServices
 
             var mapper = new Mapper(config);
             var mapped = mapper.Map<AssignedTaskDTO>(data);
+            return mapped;
+        }
+
+        //EmployeeTask
+        public static List<AssignedTaskDTO> GetEmployeeTask(int id)
+        {
+            var data = EmployeeDAF.AssignedTaskData().GetAll();
+            var dataByEmp = data.Where(t => t.AssignedToID.Equals(id)).ToList();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<AssignedTask, AssignedTaskDTO>();
+            });
+
+            var mapper = new Mapper(config);
+            var mapped = mapper.Map<List<AssignedTaskDTO>>(dataByEmp);
             return mapped;
         }
 

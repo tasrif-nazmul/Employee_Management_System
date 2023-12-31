@@ -29,7 +29,7 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             }
             catch(Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new {message= ex.Message});
             }
         }
 
@@ -48,7 +48,7 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new {message= ex.Message});
             }
         }
 
@@ -63,7 +63,7 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             }
             catch(Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new {message=ex.Message});
             }
         }
         
@@ -78,10 +78,33 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             }
             catch(Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new {message=ex.Message});
             }
         }
-        
-        
+
+        //EmployeeTask
+        [HttpGet]
+        [Route("api/employee/{id}/task")]
+        public HttpResponseMessage EmployeeTask(int id)
+        {
+            try
+            {
+                var data = AssignedTaskService.GetEmployeeTask(id);
+                if(data == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new {message="Data not found"});
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, data);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { message = ex.Message });
+            }
+        }
+
     }
 }

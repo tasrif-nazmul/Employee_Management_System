@@ -55,7 +55,6 @@
   <ItemGroup>
     <Compile Include="DAF\EmployeeDAF.cs" />
     <Compile Include="DAF\ManagerDAF.cs" />
-    <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\AssignedTask.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
