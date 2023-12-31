@@ -16,5 +16,10 @@ namespace DataAccessLayer.DAF
             return new LeaveRequestRepo();
         } 
 
+        public static IAssignTask<AssignedTask,int,bool> ATData()
+        {
+            return new AssignTaskRepo();
+        }
+
     }
 }

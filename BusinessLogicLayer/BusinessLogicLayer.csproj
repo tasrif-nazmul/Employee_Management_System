@@ -54,6 +54,7 @@
     <Compile Include="Services\EmployeeServices\AssignedTaskService.cs" />
     <Compile Include="Services\EmployeeServices\AttendanceService.cs" />
     <Compile Include="Services\EmployeeServices\LeaveRequestService.cs" />
+    <Compile Include="Services\ManegerServices\AssignTaskHandelService.cs" />
     <Compile Include="Services\ManegerServices\LeaveHandelService.cs" />
   </ItemGroup>
   <ItemGroup>

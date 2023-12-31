@@ -96,6 +96,7 @@
     <Compile Include="Controllers\EmployeeControllers\AssignedTaskController.cs" />
     <Compile Include="Controllers\EmployeeControllers\AttendanceController.cs" />
     <Compile Include="Controllers\EmployeeControllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ManegerControllers\AssignTaskHandelController.cs" />
     <Compile Include="Controllers\ManegerControllers\LeaveHandelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
