@@ -9,11 +9,10 @@ namespace DataAccessLayer.Interfaces.ManegerInterfaces
 {
     public interface ILeaveReq<CLASS, ID, RET>
     {
-       
+
         CLASS Get(ID id);
         List<CLASS> GetAll();
-        RET Accept(CLASS obj);
-        RET Reject(CLASS obj);
-        
+        RET LeaveReqHandle(CLASS obj);
+
     }
 }

@@ -12,3 +12,17 @@ C:\Users\Asus\Desktop\DN\Employee_Management_System\BusinessLogicLayer\bin\Debug
 C:\Users\Asus\Desktop\DN\Employee_Management_System\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
 C:\Users\Asus\Desktop\DN\Employee_Management_System\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\Asus\Desktop\DN\Employee_Management_System\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+D:\rnhfejkfn\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+D:\rnhfejkfn\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+D:\rnhfejkfn\BusinessLogicLayer\bin\Debug\AutoMapper.dll
+D:\rnhfejkfn\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+D:\rnhfejkfn\BusinessLogicLayer\bin\Debug\EntityFramework.dll
+D:\rnhfejkfn\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+D:\rnhfejkfn\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+D:\rnhfejkfn\BusinessLogicLayer\bin\Debug\AutoMapper.xml
+D:\rnhfejkfn\BusinessLogicLayer\bin\Debug\EntityFramework.xml
+D:\rnhfejkfn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.AssemblyReference.cache
+D:\rnhfejkfn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+D:\rnhfejkfn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+D:\rnhfejkfn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+D:\rnhfejkfn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
