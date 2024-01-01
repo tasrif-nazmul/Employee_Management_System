@@ -21,5 +21,10 @@ namespace DataAccessLayer.DAF
             return new AssignTaskRepo();
         }
 
+        public static IPerReview<PerformanceReview, int, bool> PerReviewData()
+        {
+            return new PerReviewRepo();
+        }
+
     }
 }

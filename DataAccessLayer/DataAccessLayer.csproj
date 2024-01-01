@@ -101,6 +101,7 @@
     <Compile Include="Interfaces\ManegerInterfaces\IAssignTask.cs" />
     <Compile Include="Interfaces\ManegerInterfaces\ILeaveReq.cs" />
     <Compile Include="Interfaces\ITask.cs" />
+    <Compile Include="Interfaces\ManegerInterfaces\IPerReview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\Admin\AdminRepo.cs" />
     <Compile Include="Repos\EmployeeRepos\AssignedTaskRepo.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Repos\EmployeeRepos\LeaveRequestRepo.cs" />
     <Compile Include="Repos\ManegerRepos\AssignTaskRepo.cs" />
     <Compile Include="Repos\ManegerRepos\LeaveRequestRepo.cs" />
+    <Compile Include="Repos\ManegerRepos\PerReviewRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -49,6 +49,7 @@
     <Compile Include="DTOs\EmployeeDTOs\AttendanceRecordsDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\EmployeeDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\LeaveRequestDTO.cs" />
+    <Compile Include="DTOs\EmployeeDTOs\PerformanceReviewDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Admin\AdminService.cs" />
     <Compile Include="Services\EmployeeServices\AssignedTaskService.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Services\EmployeeServices\LeaveRequestService.cs" />
     <Compile Include="Services\ManegerServices\AssignTaskHandelService.cs" />
     <Compile Include="Services\ManegerServices\LeaveHandelService.cs" />
+    <Compile Include="Services\ManegerServices\PerReviewService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
