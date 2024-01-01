@@ -54,3 +54,17 @@ C:\Users\Asus\Desktop\PPP\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.confi
 C:\Users\Asus\Desktop\PPP\BusinessLogicLayer\bin\Debug\AutoMapper.xml
 C:\Users\Asus\Desktop\PPP\BusinessLogicLayer\bin\Debug\EntityFramework.xml
 C:\Users\Asus\Desktop\PPP\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+D:\dgd\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+D:\dgd\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+D:\dgd\BusinessLogicLayer\bin\Debug\AutoMapper.dll
+D:\dgd\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+D:\dgd\BusinessLogicLayer\bin\Debug\EntityFramework.dll
+D:\dgd\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+D:\dgd\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+D:\dgd\BusinessLogicLayer\bin\Debug\AutoMapper.xml
+D:\dgd\BusinessLogicLayer\bin\Debug\EntityFramework.xml
+D:\dgd\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.AssemblyReference.cache
+D:\dgd\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+D:\dgd\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+D:\dgd\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+D:\dgd\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

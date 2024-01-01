@@ -43,5 +43,28 @@ namespace DataAccessLayer.Repos.ManegerRepos
             return db.SaveChanges()>0;
         }
 
+        public AssignedTask Get(int id)
+        {
+            return db.AssignedTasks.Find(id);
+        }
+
+        public List<AssignedTask> GetAll()
+        {
+            return db.AssignedTasks.ToList();
+        }
+
+        public bool Delete(int id)
+        {
+            var ex = db.AssignedTasks.Find(id);
+            db.AssignedTasks.Remove(ex);
+            return db.SaveChanges() > 0;
+        }
+
+        public bool Update(AssignedTask obj)
+        {
+            db.AssignedTasks.AddOrUpdate(obj);
+            return db.SaveChanges() > 0;
+        }
+
     }
 }
