@@ -101,7 +101,7 @@ namespace ApplicationLayer.Controllers.Admin
         {
             try
             {
-                PayrollService.Add(obj);
+                BusinessLogicLayer.Services.Admin.PayrollService.Add(obj);
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "Payroll Created Successfully" });
             }
             catch (Exception ex)
