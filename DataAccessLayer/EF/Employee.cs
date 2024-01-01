@@ -24,7 +24,7 @@ namespace DataAccessLayer.EF
             this.LeaveRequests = new HashSet<LeaveRequest>();
             this.PerformanceReviews = new HashSet<PerformanceReview>();
             this.PerformanceReviews1 = new HashSet<PerformanceReview>();
-            //AssignedTasks = new List<AssignedTask>();
+            this.Payrolls = new HashSet<Payroll>();
         }
     
         public int EmployeeID { get; set; }
@@ -37,7 +37,6 @@ namespace DataAccessLayer.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AssignedTask> AssignedTasks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        
         public virtual ICollection<AssignedTask> AssignedTasks1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AttendanceRecord> AttendanceRecords { get; set; }
@@ -50,5 +49,7 @@ namespace DataAccessLayer.EF
         public virtual ICollection<PerformanceReview> PerformanceReviews { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceReview> PerformanceReviews1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Payroll> Payrolls { get; set; }
     }
 }
