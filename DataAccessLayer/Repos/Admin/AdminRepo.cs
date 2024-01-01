@@ -2,6 +2,7 @@
 using DataAccessLayer.Interfaces.AdmiInterfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,7 +38,18 @@ namespace DataAccessLayer.Repos.Admin
         public bool Update(Employee obj)
         {
             var ex = Get(obj.EmployeeID);
-            db.Entry(ex).CurrentValues.SetValues(obj);
+
+            Employee newEmployee = new Employee()
+            {   
+                EmployeeID = obj.EmployeeID,
+                EmployeeName = string.IsNullOrEmpty(obj.EmployeeName) ? ex.EmployeeName : obj.EmployeeName,
+                Email = string.IsNullOrEmpty(obj.Email) ? ex.Email : obj.Email,
+                Phone = string.IsNullOrEmpty(obj.Phone) ? ex.Phone : obj.Phone,
+                DepartmentID = obj.DepartmentID.HasValue ? ex.DepartmentID : obj.DepartmentID,
+                Position = string.IsNullOrEmpty(obj.Position) ? ex.Position : obj.Position
+            };
+
+            db.Entry(ex).CurrentValues.SetValues(newEmployee);
             return db.SaveChanges() > 0;
         }
 
