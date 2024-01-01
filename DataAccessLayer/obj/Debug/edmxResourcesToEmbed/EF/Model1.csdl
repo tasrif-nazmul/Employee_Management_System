@@ -54,10 +54,7 @@
     <NavigationProperty Name="PerformanceReviews" Relationship="Self.FK_PerformanceReviews_Employees" FromRole="Employees" ToRole="PerformanceReviews" />
     <NavigationProperty Name="PerformanceReviews1" Relationship="Self.FK_PerformanceReviews_Reviewers" FromRole="Employees" ToRole="PerformanceReviews" />
     <NavigationProperty Name="Payrolls" Relationship="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" FromRole="Employee" ToRole="Payroll" />
-<<<<<<< HEAD
     <Property Name="EmployeeStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-=======
->>>>>>> 1dca21f5e1b5aa3f5107d02a36dea7e14c5a4bd8
   </EntityType>
   <EntityType Name="LeaveRequest">
     <Key>
@@ -251,11 +248,7 @@
     <Property Name="GrossSalary" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="NetSalary" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="TaxAmount" Type="Decimal" Precision="10" Scale="2" />
-<<<<<<< HEAD
     <Property Name="PayDate" Type="DateTime" Precision="3" />
-=======
-    <Property Name="PayDate" Type="DateTime" Precision="0" />
->>>>>>> 1dca21f5e1b5aa3f5107d02a36dea7e14c5a4bd8
     <Property Name="Bonus" Type="Decimal" Precision="10" Scale="2" />
     <NavigationProperty Name="Employee" Relationship="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" FromRole="Payroll" ToRole="Employee" />
   </EntityType>
