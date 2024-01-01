@@ -89,7 +89,7 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
         {
             try
             {
-                var data = AssignedTaskService.GetEmployeeTask(id);
+                var data = AssignedTaskService.GetEmployeeWithTasks(id);
                 if(data == null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, new {message="Data not found"});

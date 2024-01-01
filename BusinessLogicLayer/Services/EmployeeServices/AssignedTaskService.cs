@@ -40,18 +40,61 @@ namespace BusinessLogicLayer.Services.EmployeeServices
         }
 
         //EmployeeTask
-        public static List<AssignedTaskDTO> GetEmployeeTask(int id)
+        //public static List<AssignedTaskDTO> GetEmployeeTask(int id)
+        //{
+        //    var data = EmployeeDAF.AssignedTaskData().GetAll();
+        //    var dataByEmp = data.Where(t => t.AssignedToID.Equals(id)).ToList();
+        //    var config = new MapperConfiguration(cfg =>
+        //    {
+        //        cfg.CreateMap<AssignedTask, AssignedTaskDTO>();
+        //    });
+
+        //    var mapper = new Mapper(config);
+        //    var mapped = mapper.Map<List<AssignedTaskDTO>>(dataByEmp);
+        //    return mapped;
+        //}
+
+        //public static EmployeeWithTaskDTO GetEmployeeDetailsWithTasks(int employeeId)
+        //{
+        //    var employeeData = AdminDAF.EmployeeData().Get(employeeId); // Replace with actual method to get employee details
+        //    var assignedTaskData = EmployeeDAF.AssignedTaskData().GetAll().Where(t => t.AssignedToID.Equals(employeeId)).ToList();
+
+        //    var config = new MapperConfiguration(cfg =>
+        //    {
+        //        cfg.CreateMap<Employee, EmployeeWithTaskDTO>()
+        //            .ForMember(dest => dest.EmployeeID, opt => opt.MapFrom(src => src.EmployeeID))
+        //            .ForMember(dest => dest.EmployeeName, opt => opt.MapFrom(src => src.EmployeeName))
+        //            .ForMember(dest => dest.AssignedTasks, opt => opt.MapFrom(src => src.AssignedTasks));
+
+        //        cfg.CreateMap<AssignedTask, AssignedTaskDTO>();
+        //    });
+
+        //    var mapper = new Mapper(config);
+
+        //    var employeeDetailsWithTasks = mapper.Map<EmployeeWithTaskDTO>(employeeData);
+        //    employeeDetailsWithTasks.AssignedTasks = mapper.Map<List<AssignedTaskDTO>>(assignedTaskData);
+
+        //    return employeeDetailsWithTasks;
+        //}
+
+        public static EmployeeWithTaskDTO GetEmployeeWithTasks(int employeeId)
         {
-            var data = EmployeeDAF.AssignedTaskData().GetAll();
-            var dataByEmp = data.Where(t => t.AssignedToID.Equals(id)).ToList();
+            var employeeData = AdminDAF.EmployeeData().Get(employeeId);
+            var assignedTaskData = EmployeeDAF.AssignedTaskData().GetAll().Where(t => t.AssignedToID.Equals(employeeId)).ToList();
+
             var config = new MapperConfiguration(cfg =>
             {
+                cfg.CreateMap<Employee, EmployeeWithTaskDTO>();
+
                 cfg.CreateMap<AssignedTask, AssignedTaskDTO>();
             });
 
             var mapper = new Mapper(config);
-            var mapped = mapper.Map<List<AssignedTaskDTO>>(dataByEmp);
-            return mapped;
+
+            var employeeDetailsWithTasks = mapper.Map<EmployeeWithTaskDTO>(employeeData);
+            employeeDetailsWithTasks.AssignedTasks = mapper.Map<List<AssignedTaskDTO>>(assignedTaskData);
+
+            return employeeDetailsWithTasks;
         }
 
         public static bool Received(int id, AssignedTaskDTO obj)
