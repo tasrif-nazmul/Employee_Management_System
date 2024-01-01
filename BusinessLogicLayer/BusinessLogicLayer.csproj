@@ -48,6 +48,7 @@
     <Compile Include="DTOs\EmployeeDTOs\AssignedTaskDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\AttendanceRecordsDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\EmployeeDTO.cs" />
+    <Compile Include="DTOs\EmployeeDTOs\EmployeePerformanceDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\EmployeeWithTaskDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\LeaveRequestDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\PerformanceReviewDTO.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Services\EmployeeServices\AssignedTaskService.cs" />
     <Compile Include="Services\EmployeeServices\AttendanceService.cs" />
     <Compile Include="Services\EmployeeServices\LeaveRequestService.cs" />
+    <Compile Include="Services\EmployeeServices\PerformanceReviewService.cs" />
     <Compile Include="Services\ManegerServices\AssignTaskHandelService.cs" />
     <Compile Include="Services\ManegerServices\LeaveHandelService.cs" />
     <Compile Include="Services\ManegerServices\PerReviewService.cs" />

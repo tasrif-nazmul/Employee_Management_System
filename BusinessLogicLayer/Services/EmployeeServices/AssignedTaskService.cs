@@ -80,6 +80,10 @@ namespace BusinessLogicLayer.Services.EmployeeServices
         public static EmployeeWithTaskDTO GetEmployeeWithTasks(int employeeId)
         {
             var employeeData = AdminDAF.EmployeeData().Get(employeeId);
+            if (employeeData == null)
+            {
+                return null;
+            }
             var assignedTaskData = EmployeeDAF.AssignedTaskData().GetAll().Where(t => t.AssignedToID.Equals(employeeId)).ToList();
 
             var config = new MapperConfiguration(cfg =>

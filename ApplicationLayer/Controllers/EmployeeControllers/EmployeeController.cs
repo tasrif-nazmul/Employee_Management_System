@@ -100,7 +100,29 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             }
         }
 
-        //Attendance Records
-        
+        //Performance review
+        [HttpGet]
+        [Route("api/employee/{id}/performance")]
+        public HttpResponseMessage EmployeeTask(int id)
+        {
+            try
+            {
+                var data = PerformanceReviewService.GetEmployeeWithPerformance(id);
+                if (data == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Data not found" });
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, data);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { message = ex.Message });
+            }
+        }
+
     }
 }
