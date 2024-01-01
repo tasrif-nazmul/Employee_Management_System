@@ -15,7 +15,7 @@ namespace DataAccessLayer.DAF
         {
             return new LeaveRequestRepo();
         }
-        public static IAttendance<AttendanceRecord, bool> AttendanceData()
+        public static IAttendance<int, bool> AttendanceData()
         {
             return new AttendanceRepo();
         }

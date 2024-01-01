@@ -9,25 +9,64 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repos.EmployeeRepos
 {
-    internal class AttendanceRepo : Repo, IAttendance<AttendanceRecord, bool>
+    internal class AttendanceRepo : Repo, IAttendance<int, bool>
     {
-
-        public bool CreateEntry(AttendanceRecord obj)
+        public bool CreateEntry(int id)
         {
-            AttendanceRecord CreateEntry = new AttendanceRecord
+
+            bool employeeExists = db.Employees.Any(e => e.EmployeeID == id);
+
+            if (!employeeExists)
             {
-                EmployeeID = obj.EmployeeID,
-                EntryDateTime = DateTime.Now,
-            };
-            db.AttendanceRecords.Add(CreateEntry);
-            return db.SaveChanges() > 0;
-        }
-        public bool CreateExit(AttendanceRecord obj)
-        {
-            db.AttendanceRecords.AddOrUpdate(obj);
+                return false;
+            }
+
+            AttendanceRecord existingRecord = db.AttendanceRecords.FirstOrDefault(a => a.EmployeeID == id);
+
+            if (existingRecord != null)
+            {
+                existingRecord.EntryDateTime = DateTime.Now;
+            }
+            else
+            {
+                AttendanceRecord newEntry = new AttendanceRecord
+                {
+                    EmployeeID = id,
+                    EntryDateTime = DateTime.Now,
+                };
+
+                db.AttendanceRecords.Add(newEntry);
+            }
+
             return db.SaveChanges() > 0;
         }
 
-        
+        public bool CreateExit(int id)
+        {
+            bool employeeExists = db.Employees.Any(e => e.EmployeeID == id);
+
+            if (!employeeExists)
+            {
+                return false;
+            }
+
+            // Check if there is an unmarked entry for the employee
+            AttendanceRecord existingRecord = db.AttendanceRecords.FirstOrDefault(a => a.EmployeeID == id && a.EntryDateTime != null && a.ExitDateTime == null);
+
+            if (existingRecord != null)
+            {
+                // An unmarked entry exists, update the exit time
+                existingRecord.ExitDateTime = DateTime.Now;
+            }
+            else
+            {
+                // No unmarked entry found, return false or handle the case accordingly
+                return false;
+            }
+
+            return db.SaveChanges() > 0;
+        }
+
+
     }
 }

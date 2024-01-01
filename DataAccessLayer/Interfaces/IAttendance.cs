@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Interfaces
 {
-    public interface IAttendance<CLASS, RET>
+    public interface IAttendance<ID, RET>
     {
-        RET CreateEntry(CLASS obj);
-        RET CreateExit(CLASS obj);
+        RET CreateEntry(ID id);
+        RET CreateExit(ID id);
     }
 }

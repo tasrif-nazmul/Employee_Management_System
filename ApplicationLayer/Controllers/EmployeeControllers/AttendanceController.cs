@@ -1,5 +1,6 @@
 ﻿using BusinessLogicLayer.DTOs.EmployeeDTOs;
 using BusinessLogicLayer.Services.EmployeeServices;
+using DataAccessLayer.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,48 +11,60 @@ using System.Web.Http;
 namespace ApplicationLayer.Controllers.EmployeeControllers
 {
     public class AttendanceController : ApiController
-    {
+    { 
         [HttpPost]
-        [Route("api/employee/attendance/entry")]
-        public HttpResponseMessage CreateEntryAttendance(AttendanceRecordsDTO obj)
+        [Route("api/employee/{id}/entry")]
+        public HttpResponseMessage CreateEntryAttendance(int id)
         {
             try
             {
-                if (obj == null)
+                var data = AttendanceService.CreateEntry(id);
+                if(data)
                 {
-                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Please put data" });
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Entry Successfully" });
                 }
                 else
                 {
-                    var data = AttendanceService.CreateEntry(obj);
-                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Attendance Successfully" });
-                }
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Invalid Employee ID" });
+                }   
+                
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new {message=ex.Message});
             }
         }
         
         [HttpPost]
-        [Route("api/employee/attendance/entry")]
-        public HttpResponseMessage CreateExitAttendance(AttendanceRecordsDTO obj)
+        [Route("api/employee/{id}/exit")]
+        public HttpResponseMessage CreateExitAttendance(int id)
         {
             try
             {
-                if (obj == null)
+                var data = AttendanceService.CreateExit(id);
+                if(data)
                 {
-                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Please put data" });
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Exit Successfully" });
                 }
                 else
                 {
-                    var data = AttendanceService.CreateEntry(obj);
-                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Attendance Successfully" });
-                }
+                    var db = new EmployeeManagementEntities1();
+                    bool employeeExists = db.Employees.Any(e => e.EmployeeID == id);
+
+                    if (!employeeExists)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, new { message = "Invalid Employee ID" });
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.BadRequest, new { message = "No entry found for exit" });
+                    }
+                }   
+                
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { message = ex.Message });
             }
         }
     }

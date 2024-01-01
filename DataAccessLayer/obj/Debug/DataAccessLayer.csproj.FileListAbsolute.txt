@@ -58,3 +58,15 @@ E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAc
 E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Asus\Desktop\PPP\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete

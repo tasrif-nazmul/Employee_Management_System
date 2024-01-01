@@ -13,16 +13,13 @@ namespace BusinessLogicLayer.Services.EmployeeServices
 {
     public class AttendanceService
     {
-        public static bool CreateEntry(AttendanceRecordsDTO obj)
+        public static bool CreateEntry(int id)
         {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<AttendanceRecordsDTO, AttendanceRecord>();
-            });
-
-            var mapper = new Mapper(config);
-            var data = mapper.Map<AttendanceRecord>(obj);
-            return EmployeeDAF.AttendanceData().CreateEntry(data);
+            return EmployeeDAF.AttendanceData().CreateEntry(id);
+        }
+        public static bool CreateExit(int id)
+        {
+            return EmployeeDAF.AttendanceData().CreateExit(id);
         }
     }
 }
