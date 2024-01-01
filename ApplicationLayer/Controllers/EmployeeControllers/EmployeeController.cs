@@ -18,9 +18,9 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             try
             {
                 var data = LeaveRequestService.Create(lr);
-                return Request.CreateResponse(HttpStatusCode.OK, new {message="Created Successfully"});
+                return Request.CreateResponse(HttpStatusCode.OK, new { message = "Created Successfully" });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
             }
@@ -48,11 +48,11 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             try
             {
                 var data = LeaveRequestService.Get(id);
-                if(data != null)
+                if (data != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, data);
                 }
-                return Request.CreateResponse(HttpStatusCode.OK, new {message="Data not found"});
+                return Request.CreateResponse(HttpStatusCode.OK, new { message = "Data not found" });
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             try
             {
 
-                if(obj == null)
+                if (obj == null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, new { message = "Please put data" });
                 }
@@ -76,14 +76,14 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
                     LeaveRequestService.update(id, obj);
                     return Request.CreateResponse(HttpStatusCode.OK, new { message = "Updated Successfully" });
                 }
-                
+
             }
             catch (Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
             }
         }
-        
+
         [HttpDelete]
         [Route("api/employee/leave-request/delete/{id}")]
         public HttpResponseMessage Delete(int id)
@@ -92,7 +92,7 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             {
                 var data = LeaveRequestService.delete(id);
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "Deleted Successfully" });
-               
+
             }
             catch (Exception ex)
             {
@@ -124,5 +124,29 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             }
         }
 
+        //Payroll
+
+        [HttpGet]
+        [Route("api/employee/payroll/search")]
+        public HttpResponseMessage SearchPayrollData(PayrollDTO obj)
+        {
+            try
+            {
+                if (obj == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Please insert data" });
+                }
+                else
+                {
+                    var payrollData = PayrollService.SearchPayrollData(obj);
+                    return Request.CreateResponse(HttpStatusCode.OK, payrollData);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { message = ex.Message });
+            }
+
+        }
     }
 }
