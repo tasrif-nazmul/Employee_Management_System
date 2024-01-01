@@ -44,6 +44,10 @@ namespace BusinessLogicLayer.Services.Admin
                 ManagerDAF.ATData().ReassignTask(aTask, 1);
             }
 
+            ManagerDAF.LRData().RemoveAllById(id);
+            ManagerDAF.PerReviewData().RemoveAllById(id);
+            EmployeeDAF.AttendanceData().RemoveAllById(id);
+            AdminDAF.PayrollData().Delete(id);
             return AdminDAF.EmployeeData().Delete(id);
         }
 

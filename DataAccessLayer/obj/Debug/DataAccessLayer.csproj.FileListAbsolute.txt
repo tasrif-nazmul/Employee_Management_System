@@ -46,18 +46,6 @@ D:\rnhfejkfn\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.
 D:\rnhfejkfn\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 D:\rnhfejkfn\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\rnhfejkfn\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\EntityFramework.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\EntityFramework.xml
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
 C:\Users\Asus\Desktop\PPP\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
 C:\Users\Asus\Desktop\PPP\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Asus\Desktop\PPP\DataAccessLayer\obj\Debug\DataAccessLayer.dll
@@ -82,6 +70,20 @@ D:\dgd\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 D:\dgd\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 D:\dgd\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\dgd\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+<<<<<<< HEAD
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\EntityFramework.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\EntityFramework.xml
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+=======
 C:\Users\Asus\Desktop\nnn\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
 C:\Users\Asus\Desktop\nnn\DataAccessLayer\bin\Debug\DataAccessLayer.dll
 C:\Users\Asus\Desktop\nnn\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
@@ -94,3 +96,4 @@ C:\Users\Asus\Desktop\nnn\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreC
 C:\Users\Asus\Desktop\nnn\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\Asus\Desktop\nnn\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Asus\Desktop\nnn\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+>>>>>>> 1dca21f5e1b5aa3f5107d02a36dea7e14c5a4bd8

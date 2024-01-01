@@ -2,6 +2,7 @@
 using DataAccessLayer.Interfaces.ManegerInterfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,14 @@ namespace DataAccessLayer.Repos.ManegerRepos
         public List<LeaveRequest> GetAll()
         {
             return db.LeaveRequests.ToList();
+        }
+
+        public bool RemoveAllById(int id)
+        {
+            var leaveRequests = db.LeaveRequests.Where(t => t.EmployeeID == id).ToList();
+            db.LeaveRequests.RemoveRange(leaveRequests);
+            return db.SaveChanges() > 0;
+
         }
     }
 }

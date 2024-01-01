@@ -33,6 +33,7 @@ namespace DataAccessLayer.EF
         public string Phone { get; set; }
         public Nullable<int> DepartmentID { get; set; }
         public string Position { get; set; }
+        public string EmployeeStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AssignedTask> AssignedTasks { get; set; }

@@ -15,5 +15,9 @@ namespace DataAccessLayer.DAF
         {
             return new AdminRepo();
         }
+        public static IPayroll<Payroll, int, bool> PayrollData()
+        {
+            return new PayrollRepo();
+        }
     }
 }

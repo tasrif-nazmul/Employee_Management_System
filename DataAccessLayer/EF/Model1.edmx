@@ -45,6 +45,7 @@
           <Property Name="Phone" Type="varchar" MaxLength="15" />
           <Property Name="DepartmentID" Type="int" />
           <Property Name="Position" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeStatus" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LeaveRequests">
           <Key>
@@ -66,7 +67,7 @@
           <Property Name="GrossSalary" Type="decimal" Precision="10" Scale="2" />
           <Property Name="NetSalary" Type="decimal" Precision="10" Scale="2" />
           <Property Name="TaxAmount" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="PayDate" Type="date" />
+          <Property Name="PayDate" Type="datetime" />
           <Property Name="Bonus" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="PerformanceReviews">
@@ -319,6 +320,7 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
           <NavigationProperty Name="PerformanceReviews" Relationship="Self.FK_PerformanceReviews_Employees" FromRole="Employees" ToRole="PerformanceReviews" />
           <NavigationProperty Name="PerformanceReviews1" Relationship="Self.FK_PerformanceReviews_Reviewers" FromRole="Employees" ToRole="PerformanceReviews" />
           <NavigationProperty Name="Payrolls" Relationship="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" FromRole="Employee" ToRole="Payroll" />
+          <Property Name="EmployeeStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="LeaveRequest">
           <Key>
@@ -354,12 +356,12 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
             <PropertyRef Name="create_date" />
             <PropertyRef Name="modify_date" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="start_ip_address" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="end_ip_address" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="create_date" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="modify_date" Nullable="false" Precision="3" Type="DateTime" />
         </EntityType>
         <Association Name="FK_Tasks_Employees_AssignedBy">
           <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
@@ -512,7 +514,7 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
           <Property Name="GrossSalary" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="NetSalary" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="TaxAmount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="PayDate" Type="DateTime" Precision="0" />
+          <Property Name="PayDate" Type="DateTime" Precision="3" />
           <Property Name="Bonus" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Employee" Relationship="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" FromRole="Payroll" ToRole="Employee" />
         </EntityType>
@@ -570,6 +572,7 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="EmployeeManagementModel.Employee">
               <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

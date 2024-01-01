@@ -47,7 +47,7 @@ namespace ApplicationLayer.Controllers.Admin
             }
         }
 
-        [HttpDelete]
+        [HttpPost]
         [Route("api/admin/delete-employee/{id}")]
 
         public HttpResponseMessage Delete(int id)
@@ -88,6 +88,21 @@ namespace ApplicationLayer.Controllers.Admin
             {
                 AdminService.Update(obj);
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "Updated Successfully" });
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { message = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/admin/add-payroll")]
+        public HttpResponseMessage Create(PayrollDTO obj)
+        {
+            try
+            {
+                PayrollService.Add(obj);
+                return Request.CreateResponse(HttpStatusCode.OK, new { message = "Payroll Created Successfully" });
             }
             catch (Exception ex)
             {

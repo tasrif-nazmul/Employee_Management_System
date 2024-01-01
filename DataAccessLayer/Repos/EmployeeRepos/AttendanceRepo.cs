@@ -67,6 +67,13 @@ namespace DataAccessLayer.Repos.EmployeeRepos
             return db.SaveChanges() > 0;
         }
 
+        public bool RemoveAllById(int id)
+        {
+            var attendanceRecords = db.AttendanceRecords.Where(t => t.EmployeeID == id).ToList();
+            db.AttendanceRecords.RemoveRange(attendanceRecords);
+            return db.SaveChanges() > 0;
+
+        }
 
     }
 }

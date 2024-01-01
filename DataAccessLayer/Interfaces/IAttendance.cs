@@ -10,5 +10,7 @@ namespace DataAccessLayer.Interfaces
     {
         RET CreateEntry(ID id);
         RET CreateExit(ID id);
+
+        RET RemoveAllById(ID id);
     }
 }

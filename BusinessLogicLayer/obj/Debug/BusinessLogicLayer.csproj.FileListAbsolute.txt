@@ -26,20 +26,6 @@ D:\rnhfejkfn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileI
 D:\rnhfejkfn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
 D:\rnhfejkfn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 D:\rnhfejkfn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\AutoMapper.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\EntityFramework.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\AutoMapper.xml
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\EntityFramework.xml
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.AssemblyReference.cache
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
-E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
 C:\Users\Asus\Desktop\PPP\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.AssemblyReference.cache
 C:\Users\Asus\Desktop\PPP\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
 C:\Users\Asus\Desktop\PPP\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
@@ -68,6 +54,22 @@ D:\dgd\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.
 D:\dgd\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
 D:\dgd\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 D:\dgd\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+<<<<<<< HEAD
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\AutoMapper.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\EntityFramework.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\AutoMapper.xml
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\bin\Debug\EntityFramework.xml
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.AssemblyReference.cache
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\C#\EmployeeManagementSystem\ApplicationLayer\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+=======
 C:\Users\Asus\Desktop\nnn\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
 C:\Users\Asus\Desktop\nnn\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
 C:\Users\Asus\Desktop\nnn\BusinessLogicLayer\bin\Debug\AutoMapper.dll
@@ -82,3 +84,4 @@ C:\Users\Asus\Desktop\nnn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj
 C:\Users\Asus\Desktop\nnn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
 C:\Users\Asus\Desktop\nnn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\Asus\Desktop\nnn\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+>>>>>>> 1dca21f5e1b5aa3f5107d02a36dea7e14c5a4bd8

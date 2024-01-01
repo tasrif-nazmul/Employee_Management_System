@@ -26,7 +26,7 @@ namespace DataAccessLayer.Repos.Admin
         public bool Delete(int id)
         {
             var ex = db.Employees.Find(id);
-            db.Employees.Remove(ex);
+            ex.EmployeeStatus = "Deleted";
             return db.SaveChanges() > 0;
         }
 
@@ -46,12 +46,17 @@ namespace DataAccessLayer.Repos.Admin
                 Email = string.IsNullOrEmpty(obj.Email) ? ex.Email : obj.Email,
                 Phone = string.IsNullOrEmpty(obj.Phone) ? ex.Phone : obj.Phone,
                 DepartmentID = obj.DepartmentID.HasValue ? ex.DepartmentID : obj.DepartmentID,
-                Position = string.IsNullOrEmpty(obj.Position) ? ex.Position : obj.Position
+                Position = string.IsNullOrEmpty(obj.Position) ? ex.Position : obj.Position,
+                EmployeeStatus = string.IsNullOrEmpty(obj.EmployeeStatus) ? ex.EmployeeStatus : obj.EmployeeStatus
             };
 
             db.Entry(ex).CurrentValues.SetValues(newEmployee);
             return db.SaveChanges() > 0;
         }
 
+        public bool RemoveDepartment(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

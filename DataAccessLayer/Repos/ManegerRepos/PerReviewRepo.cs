@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repos.ManegerRepos
 {
-    internal class PerReviewRepo : Repo, IPerReview<PerformanceReview, int, bool>
+    internal class PerReviewRepo : Repo, IPerReview<PerformanceReview, int, bool,string>
     {
         public bool create(PerformanceReview obj)
         {
@@ -40,5 +40,25 @@ namespace DataAccessLayer.Repos.ManegerRepos
         {
             return db.PerformanceReviews.ToList();
         }
+
+        public bool RemoveAllById(int id)
+        {
+            var performanceReviews = db.PerformanceReviews.Where(t => t.EmployeeID == id || t.ReviewerID == id).ToList();
+            db.PerformanceReviews.RemoveRange(performanceReviews);
+            return db.SaveChanges() > 0;
+
+        }
+
+        public string GetRatings(int id)
+        {
+            var mostRecentRating = db.PerformanceReviews
+                                    .Where(pr => pr.EmployeeID == id)
+                                    .OrderByDescending(pr => pr.ReviewDate)
+                                    .Select(pr => pr.Rating)
+                                    .FirstOrDefault();
+
+            return mostRecentRating.ToString();
+        }
+
     }
 }

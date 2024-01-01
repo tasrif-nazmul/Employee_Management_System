@@ -13,6 +13,6 @@ namespace DataAccessLayer.Interfaces.ManegerInterfaces
         CLASS Get(ID id);
         List<CLASS> GetAll();
         RET LeaveReqHandle(CLASS obj);
-
+        RET RemoveAllById(ID id);
     }
 }

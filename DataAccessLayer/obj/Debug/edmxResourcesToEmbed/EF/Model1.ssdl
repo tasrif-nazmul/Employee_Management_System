@@ -40,6 +40,7 @@
     <Property Name="Phone" Type="varchar" MaxLength="15" />
     <Property Name="DepartmentID" Type="int" />
     <Property Name="Position" Type="varchar" MaxLength="50" />
+    <Property Name="EmployeeStatus" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="LeaveRequests">
     <Key>
@@ -61,7 +62,11 @@
     <Property Name="GrossSalary" Type="decimal" Precision="10" Scale="2" />
     <Property Name="NetSalary" Type="decimal" Precision="10" Scale="2" />
     <Property Name="TaxAmount" Type="decimal" Precision="10" Scale="2" />
+<<<<<<< HEAD
+    <Property Name="PayDate" Type="datetime" />
+=======
     <Property Name="PayDate" Type="date" />
+>>>>>>> 1dca21f5e1b5aa3f5107d02a36dea7e14c5a4bd8
     <Property Name="Bonus" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
   <EntityType Name="PerformanceReviews">

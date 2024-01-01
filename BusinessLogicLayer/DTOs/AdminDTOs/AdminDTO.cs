@@ -14,5 +14,6 @@ namespace BusinessLogicLayer.DTOs.AdminDTOs
         public string Phone { get; set; }
         public int DepartmentID { get; set; }
         public string Position { get; set; }
+        public string EmployeeStatus { get; set; }
     }
 }
