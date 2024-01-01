@@ -53,6 +53,7 @@
     <NavigationProperty Name="LeaveRequests" Relationship="Self.FK_LeaveRequests_Employees" FromRole="Employees" ToRole="LeaveRequests" />
     <NavigationProperty Name="PerformanceReviews" Relationship="Self.FK_PerformanceReviews_Employees" FromRole="Employees" ToRole="PerformanceReviews" />
     <NavigationProperty Name="PerformanceReviews1" Relationship="Self.FK_PerformanceReviews_Reviewers" FromRole="Employees" ToRole="PerformanceReviews" />
+    <NavigationProperty Name="Payrolls" Relationship="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" FromRole="Employee" ToRole="Payroll" />
   </EntityType>
   <EntityType Name="LeaveRequest">
     <Key>
@@ -231,5 +232,35 @@
       <End Role="Employees" EntitySet="Employees" />
       <End Role="PerformanceReviews" EntitySet="PerformanceReviews" />
     </AssociationSet>
+    <EntitySet Name="Payrolls" EntityType="EmployeeManagementModel.Payroll" />
+    <AssociationSet Name="FK__Payrolls__Employ__6FE99F9F" Association="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Payroll" EntitySet="Payrolls" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Payroll">
+    <Key>
+      <PropertyRef Name="PayrollID" />
+    </Key>
+    <Property Name="PayrollID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="GrossSalary" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="NetSalary" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PayDate" Type="DateTime" Precision="0" />
+    <Property Name="Bonus" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Employee" Relationship="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" FromRole="Payroll" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK__Payrolls__Employ__6FE99F9F">
+    <End Type="EmployeeManagementModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="EmployeeManagementModel.Payroll" Role="Payroll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Payroll">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

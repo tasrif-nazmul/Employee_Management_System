@@ -46,5 +46,26 @@ namespace BusinessLogicLayer.Services.Admin
 
             return AdminDAF.EmployeeData().Delete(id);
         }
+
+        public static bool Add(AdminDTO obj) {
+
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<AdminDTO, Employee>();
+            });
+            var mapper = new Mapper(config);
+            var mapped = mapper.Map<Employee>(obj);
+            return AdminDAF.EmployeeData().Add(mapped);
+        }
+
+        public static bool Update(AdminDTO obj)
+        {
+
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<AdminDTO, Employee>();
+            });
+            var mapper = new Mapper(config);
+            var mapped = mapper.Map<Employee>(obj);
+            return AdminDAF.EmployeeData().Update(mapped);
+        }
     }
 }

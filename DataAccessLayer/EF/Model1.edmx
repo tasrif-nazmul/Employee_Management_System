@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EmployeeManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EmployeeManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AssignedTask">
           <Key>
             <PropertyRef Name="TaskID" />
@@ -57,6 +57,18 @@
           <Property Name="LeaveEndDate" Type="date" />
           <Property Name="Status" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="Payrolls">
+          <Key>
+            <PropertyRef Name="PayrollID" />
+          </Key>
+          <Property Name="PayrollID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="GrossSalary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NetSalary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TaxAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PayDate" Type="date" />
+          <Property Name="Bonus" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
         <EntityType Name="PerformanceReviews">
           <Key>
             <PropertyRef Name="ReviewID" />
@@ -86,6 +98,18 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
           <Property Name="create_date" Type="datetime" Nullable="false" />
           <Property Name="modify_date" Type="datetime" Nullable="false" />
         </EntityType>
+        <Association Name="FK__Payrolls__Employ__6FE99F9F">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Payrolls" Type="Self.Payrolls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Payrolls">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AttendanceRecords_Employees">
           <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
           <End Role="AttendanceRecords" Type="Self.AttendanceRecords" Multiplicity="*" />
@@ -188,6 +212,7 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
           <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LeaveRequests" EntityType="Self.LeaveRequests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payrolls" EntityType="Self.Payrolls" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PerformanceReviews" EntityType="Self.PerformanceReviews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
             <DefiningQuery>SELECT 
@@ -199,6 +224,10 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
     [database_firewall_rules].[modify_date] AS [modify_date]
     FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK__Payrolls__Employ__6FE99F9F" Association="Self.FK__Payrolls__Employ__6FE99F9F">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Payrolls" EntitySet="Payrolls" />
+          </AssociationSet>
           <AssociationSet Name="FK_AttendanceRecords_Employees" Association="Self.FK_AttendanceRecords_Employees">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="AttendanceRecords" EntitySet="AttendanceRecords" />
@@ -232,8 +261,7 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
             <End Role="AssignedTask" EntitySet="AssignedTask" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EmployeeManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -290,6 +318,7 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
           <NavigationProperty Name="LeaveRequests" Relationship="Self.FK_LeaveRequests_Employees" FromRole="Employees" ToRole="LeaveRequests" />
           <NavigationProperty Name="PerformanceReviews" Relationship="Self.FK_PerformanceReviews_Employees" FromRole="Employees" ToRole="PerformanceReviews" />
           <NavigationProperty Name="PerformanceReviews1" Relationship="Self.FK_PerformanceReviews_Reviewers" FromRole="Employees" ToRole="PerformanceReviews" />
+          <NavigationProperty Name="Payrolls" Relationship="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" FromRole="Employee" ToRole="Payroll" />
         </EntityType>
         <EntityType Name="LeaveRequest">
           <Key>
@@ -468,7 +497,37 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
             <End Role="Employees" EntitySet="Employees" />
             <End Role="PerformanceReviews" EntitySet="PerformanceReviews" />
           </AssociationSet>
+          <EntitySet Name="Payrolls" EntityType="EmployeeManagementModel.Payroll" />
+          <AssociationSet Name="FK__Payrolls__Employ__6FE99F9F" Association="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Payroll" EntitySet="Payrolls" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Payroll">
+          <Key>
+            <PropertyRef Name="PayrollID" />
+          </Key>
+          <Property Name="PayrollID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="GrossSalary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="NetSalary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TaxAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PayDate" Type="DateTime" Precision="0" />
+          <Property Name="Bonus" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Employee" Relationship="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" FromRole="Payroll" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK__Payrolls__Employ__6FE99F9F">
+          <End Type="EmployeeManagementModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="EmployeeManagementModel.Payroll" Role="Payroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Payroll">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -553,6 +612,19 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
                 <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
                 <ScalarProperty Name="create_date" ColumnName="create_date" />
                 <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payrolls">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.Payroll">
+              <MappingFragment StoreEntitySet="Payrolls">
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="PayDate" ColumnName="PayDate" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="NetSalary" ColumnName="NetSalary" />
+                <ScalarProperty Name="GrossSalary" ColumnName="GrossSalary" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="PayrollID" ColumnName="PayrollID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,6 +1,8 @@
-﻿using BusinessLogicLayer.Services;
+﻿using BusinessLogicLayer.DTOs.AdminDTOs;
+using BusinessLogicLayer.Services;
 using BusinessLogicLayer.Services.Admin;
 using BusinessLogicLayer.Services.EmployeeServices;
+using BusinessLogicLayer.Services.ManegerServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +61,37 @@ namespace ApplicationLayer.Controllers.Admin
             catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("api/admin/create-employee")]
+
+        public HttpResponseMessage Create(AdminDTO obj) {
+            try
+            {
+                AdminService.Add(obj);
+                return Request.CreateResponse(HttpStatusCode.OK, new { message = "Created Successfully" });
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { message = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/admin/update-employee")]
+
+        public HttpResponseMessage Update(AdminDTO obj)
+        {
+            try
+            {
+                AdminService.Update(obj);
+                return Request.CreateResponse(HttpStatusCode.OK, new { message = "Updated Successfully" });
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { message = ex.Message });
             }
         }
     }
