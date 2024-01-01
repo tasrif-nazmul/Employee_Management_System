@@ -11,5 +11,7 @@ namespace DataAccessLayer.Interfaces
         RET TaskHandle(CLASS obj);
         CLASS Get(ID id);
         List<CLASS> GetAll();
+
+        List<CLASS> GetAllById(ID id);
     }
 }

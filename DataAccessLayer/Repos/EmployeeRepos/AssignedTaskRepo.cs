@@ -2,6 +2,7 @@
 using DataAccessLayer.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,12 @@ namespace DataAccessLayer.Repos.EmployeeRepos
         {
             db.AssignedTasks.AddOrUpdate(obj);
             return db.SaveChanges() > 0;
+        }
+
+        public List<AssignedTask> GetAllById(int id)
+        {
+            return db.AssignedTasks.Where(t => t.AssignedToID == id || t.AssignedByID == id).ToList();
+ 
         }
     }
 }

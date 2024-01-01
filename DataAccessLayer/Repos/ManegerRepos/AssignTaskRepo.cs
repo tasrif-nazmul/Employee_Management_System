@@ -1,7 +1,10 @@
 ﻿using DataAccessLayer.EF;
+using DataAccessLayer.Interfaces;
 using DataAccessLayer.Interfaces.ManegerInterfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +31,17 @@ namespace DataAccessLayer.Repos.ManegerRepos
             return db.SaveChanges() > 0;
         }
 
-        
+
+        public bool ReassignTask(AssignedTask assignedTask, int newAssigneeId)
+        {
+       
+            var ex = db.AssignedTasks.Find(assignedTask.TaskID);
+
+            ex.AssignedToID = newAssigneeId;
+            ex.AssignedByID = newAssigneeId;
+
+            return db.SaveChanges()>0;
+        }
+
     }
 }

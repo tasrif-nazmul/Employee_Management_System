@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAF\AdminDAF.cs" />
     <Compile Include="DAF\EmployeeDAF.cs" />
     <Compile Include="DAF\ManagerDAF.cs" />
     <Compile Include="EF\AssignedTask.cs">
@@ -91,6 +92,7 @@
     <Compile Include="EF\PerformanceReview.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\AdmiInterfaces\IAdmin.cs" />
     <Compile Include="Interfaces\IAttendance.cs" />
     <Compile Include="Interfaces\ILeaveReq.cs" />
     <Compile Include="Interfaces\ManegerInterfaces\IAssignTask.cs" />

@@ -1,28 +1,45 @@
 ﻿using DataAccessLayer.EF;
+using DataAccessLayer.Interfaces.AdmiInterfaces;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repos.Admin
 {
-    public class AdminRepo
+    internal class AdminRepo : Repo, IAdmin<Employee, int, bool>
     {
-        public static List<Employee> GetAll()
+        public List<Employee> GetAll()
         {
-              var db = new EmployeeManagementEntities1();
-            
-             return db.Employees.ToList();
 
-         /*   var bigCities = new List<string>()
-                    {
-                        "New York",
-                        "London",
-                        "Mumbai",
-                        "Chicago"
-                    };
+            return db.Employees.ToList();
 
-            return bigCities;
-         
-            */
         }
+        public bool Add(Employee obj)
+        {
+            db.Employees.Add(obj);
+            return db.SaveChanges() > 0;
+        }
+
+        public bool Delete(int id)
+        {
+            var ex = db.Employees.Find(id);
+            db.Employees.Remove(ex);
+            return db.SaveChanges() > 0;
+        }
+
+        public Employee Get(int id)
+        {
+            return db.Employees.Find(id);
+        }
+
+        public bool Update(Employee obj)
+        {
+            var ex = Get(obj.EmployeeID);
+            db.Entry(ex).CurrentValues.SetValues(obj);
+            return db.SaveChanges() > 0;
+        }
+
     }
 }
