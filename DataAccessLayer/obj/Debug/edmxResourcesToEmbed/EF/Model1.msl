@@ -37,6 +37,7 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="EmployeeManagementModel.Employee">
         <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
@@ -93,6 +94,17 @@
           <ScalarProperty Name="GrossSalary" ColumnName="GrossSalary" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="PayrollID" ColumnName="PayrollID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.Token">
+        <MappingFragment StoreEntitySet="Tokens">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+          <ScalarProperty Name="TKey" ColumnName="TKey" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

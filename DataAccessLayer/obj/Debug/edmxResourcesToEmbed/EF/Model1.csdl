@@ -55,6 +55,8 @@
     <NavigationProperty Name="PerformanceReviews1" Relationship="Self.FK_PerformanceReviews_Reviewers" FromRole="Employees" ToRole="PerformanceReviews" />
     <NavigationProperty Name="Payrolls" Relationship="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" FromRole="Employee" ToRole="Payroll" />
     <Property Name="EmployeeStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tokens" Relationship="EmployeeManagementModel.FK__Tokens__Employee__72C60C4A" FromRole="Employee" ToRole="Token" />
   </EntityType>
   <EntityType Name="LeaveRequest">
     <Key>
@@ -238,6 +240,11 @@
       <End Role="Employee" EntitySet="Employees" />
       <End Role="Payroll" EntitySet="Payrolls" />
     </AssociationSet>
+    <EntitySet Name="Tokens" EntityType="EmployeeManagementModel.Token" />
+    <AssociationSet Name="FK__Tokens__Employee__72C60C4A" Association="EmployeeManagementModel.FK__Tokens__Employee__72C60C4A">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Token" EntitySet="Tokens" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Payroll">
     <Key>
@@ -260,6 +267,29 @@
         <PropertyRef Name="EmployeeID" />
       </Principal>
       <Dependent Role="Payroll">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateAt" Type="DateTime" Precision="3" />
+    <Property Name="DeletedAt" Type="DateTime" Precision="3" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="EmployeeManagementModel.FK__Tokens__Employee__72C60C4A" FromRole="Token" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK__Tokens__Employee__72C60C4A">
+    <End Type="EmployeeManagementModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="EmployeeManagementModel.Token" Role="Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Token">
         <PropertyRef Name="EmployeeID" />
       </Dependent>
     </ReferentialConstraint>

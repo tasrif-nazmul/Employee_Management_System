@@ -95,6 +95,9 @@
     <Compile Include="EF\PerformanceReview.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\Token.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\AdmiInterfaces\IDepartments.cs" />
     <Compile Include="Interfaces\AdmiInterfaces\IAdmin.cs" />
     <Compile Include="Interfaces\AdmiInterfaces\IPayroll.cs" />

@@ -41,6 +41,7 @@
     <Property Name="DepartmentID" Type="int" />
     <Property Name="Position" Type="varchar" MaxLength="50" />
     <Property Name="EmployeeStatus" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="LeaveRequests">
     <Key>
@@ -76,6 +77,16 @@
     <Property Name="Feedback" Type="text" />
     <Property Name="Rating" Type="decimal" Precision="3" Scale="1" />
   </EntityType>
+  <EntityType Name="Tokens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TKey" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreateAt" Type="datetime" />
+    <Property Name="DeletedAt" Type="datetime" />
+    <Property Name="EmployeeID" Type="int" />
+  </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="database_firewall_rules">
@@ -102,6 +113,18 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
         <PropertyRef Name="EmployeeID" />
       </Principal>
       <Dependent Role="Payrolls">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tokens__Employee__72C60C4A">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Tokens" Type="Self.Tokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Tokens">
         <PropertyRef Name="EmployeeID" />
       </Dependent>
     </ReferentialConstraint>
@@ -210,6 +233,7 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
     <EntitySet Name="LeaveRequests" EntityType="Self.LeaveRequests" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payrolls" EntityType="Self.Payrolls" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PerformanceReviews" EntityType="Self.PerformanceReviews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tokens" EntityType="Self.Tokens" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
       <DefiningQuery>SELECT 
     [database_firewall_rules].[id] AS [id], 
@@ -223,6 +247,10 @@ warning 6002: The table/view 'EmployeeManagement.sys.database_firewall_rules' do
     <AssociationSet Name="FK__Payrolls__Employ__6FE99F9F" Association="Self.FK__Payrolls__Employ__6FE99F9F">
       <End Role="Employees" EntitySet="Employees" />
       <End Role="Payrolls" EntitySet="Payrolls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tokens__Employee__72C60C4A" Association="Self.FK__Tokens__Employee__72C60C4A">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Tokens" EntitySet="Tokens" />
     </AssociationSet>
     <AssociationSet Name="FK_AttendanceRecords_Employees" Association="Self.FK_AttendanceRecords_Employees">
       <End Role="Employees" EntitySet="Employees" />

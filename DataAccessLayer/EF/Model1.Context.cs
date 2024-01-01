@@ -33,5 +33,6 @@ namespace DataAccessLayer.EF
         public virtual DbSet<PerformanceReview> PerformanceReviews { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public virtual DbSet<Payroll> Payrolls { get; set; }
+        public virtual DbSet<Token> Tokens { get; set; }
     }
 }

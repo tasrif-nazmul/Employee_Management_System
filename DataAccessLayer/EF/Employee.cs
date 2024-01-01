@@ -25,6 +25,7 @@ namespace DataAccessLayer.EF
             this.PerformanceReviews = new HashSet<PerformanceReview>();
             this.PerformanceReviews1 = new HashSet<PerformanceReview>();
             this.Payrolls = new HashSet<Payroll>();
+            this.Tokens = new HashSet<Token>();
         }
     
         public int EmployeeID { get; set; }
@@ -34,6 +35,7 @@ namespace DataAccessLayer.EF
         public Nullable<int> DepartmentID { get; set; }
         public string Position { get; set; }
         public string EmployeeStatus { get; set; }
+        public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AssignedTask> AssignedTasks { get; set; }
@@ -52,5 +54,7 @@ namespace DataAccessLayer.EF
         public virtual ICollection<PerformanceReview> PerformanceReviews1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payroll> Payrolls { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Token> Tokens { get; set; }
     }
 }

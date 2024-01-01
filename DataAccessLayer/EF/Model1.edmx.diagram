@@ -22,6 +22,8 @@
         <AssociationConnector Association="EmployeeManagementModel.FK_PerformanceReviews_Reviewers" ManuallyRouted="false" />
         <EntityTypeShape EntityType="EmployeeManagementModel.Payroll" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
         <AssociationConnector Association="EmployeeManagementModel.FK__Payrolls__Employ__6FE99F9F" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.Token" Width="1.5" PointX="3" PointY="21.25" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__Tokens__Employee__72C60C4A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
