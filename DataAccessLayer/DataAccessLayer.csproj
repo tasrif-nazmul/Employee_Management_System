@@ -102,6 +102,7 @@
     <Compile Include="Interfaces\AdmiInterfaces\IAdmin.cs" />
     <Compile Include="Interfaces\AdmiInterfaces\IPayroll.cs" />
     <Compile Include="Interfaces\IAttendance.cs" />
+    <Compile Include="Interfaces\IAuth.cs" />
     <Compile Include="Interfaces\ILeaveReq.cs" />
     <Compile Include="Interfaces\IPR.cs" />
     <Compile Include="Interfaces\ManegerInterfaces\IAssignTask.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Repos\ManegerRepos\LeaveRequestRepo.cs" />
     <Compile Include="Repos\ManegerRepos\PerReviewRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
+    <Compile Include="Repos\TokenRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

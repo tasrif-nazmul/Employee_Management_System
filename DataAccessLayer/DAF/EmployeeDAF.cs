@@ -1,5 +1,7 @@
 ﻿using DataAccessLayer.EF;
 using DataAccessLayer.Interfaces;
+using DataAccessLayer.Interfaces.AdmiInterfaces;
+using DataAccessLayer.Repos;
 using DataAccessLayer.Repos.EmployeeRepos;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,11 @@ namespace DataAccessLayer.DAF
         public static IPR<Payroll,int> PRoleData()
         {
             return new PRRepo();
+        }
+
+        public static IAdmin<Token, string, Token> TokenData()
+        {
+            return new TokenRepo();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.EF;
+using DataAccessLayer.Interfaces;
 using DataAccessLayer.Interfaces.AdmiInterfaces;
 using DataAccessLayer.Repos.Admin;
 using System;
@@ -18,6 +19,10 @@ namespace DataAccessLayer.DAF
         public static IPayroll<Payroll, int, bool> PayrollData()
         {
             return new PayrollRepo();
+        }
+        public static IAuth<bool> AuthData()
+        {
+            return new AdminRepo();
         }
     }
 }

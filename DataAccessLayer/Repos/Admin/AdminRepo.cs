@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.EF;
+using DataAccessLayer.Interfaces;
 using DataAccessLayer.Interfaces.AdmiInterfaces;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repos.Admin
 {
-    internal class AdminRepo : Repo, IAdmin<Employee, int, bool>
+    internal class AdminRepo : Repo, IAdmin<Employee, int, bool>, IAuth<bool>
     {
         public List<Employee> GetAll()
         {
@@ -58,5 +59,29 @@ namespace DataAccessLayer.Repos.Admin
         {
             throw new NotImplementedException();
         }
+
+        public bool Authenticate(string email, string password)
+        {
+            var data = db.Employees.FirstOrDefault(u => u.Email == email && u.Password == password);
+            if (data != null) return true;
+            return false;
+
+        }
+
+        public int GetEmployeeID(string email, string password)
+        {
+            var employee = db.Employees.FirstOrDefault(e => e.Email == email && e.Password == password);
+
+            if (employee != null)
+            {
+                return employee.EmployeeID;
+            }
+            else
+            {
+                throw new Exception("Invalid Email or Password");
+            }
+        }
+
+
     }
 }
