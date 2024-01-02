@@ -1,4 +1,5 @@
-﻿using BusinessLogicLayer.DTOs.EmployeeDTOs;
+﻿using ApplicationLayer.Auth;
+using BusinessLogicLayer.DTOs.EmployeeDTOs;
 using BusinessLogicLayer.Services.EmployeeServices;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
 {
     public class AssignedTaskController : ApiController
     {
+        [ELogged]
         [HttpGet]
         [Route("api/employee/task")]
         public HttpResponseMessage GetAll()
