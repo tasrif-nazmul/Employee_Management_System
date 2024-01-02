@@ -8,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repos.EmployeeRepos
 {
-    internal class PRRepo : Repo, IPR<Payroll>
+    internal class PRRepo : Repo, IPR<Payroll,int>
     {
+        public Payroll Get(int id)
+        {
+            return db.Payrolls.Find(id);
+        }
+
         public List<Payroll> GetAll()
         {
             return db.Payrolls.ToList();

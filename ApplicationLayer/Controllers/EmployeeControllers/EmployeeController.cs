@@ -148,5 +148,27 @@ namespace ApplicationLayer.Controllers.EmployeeControllers
             }
 
         }
+        [HttpGet]
+        [Route("api/employee/{id}/payslip")]
+        public HttpResponseMessage PaySlip(int id)
+        {
+            try
+            {
+                var data = PayrollService.GetPaySlip(id);
+                if (data == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "Data not found" });
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, data);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { message = ex.Message });
+            }
+        }
     }
 }

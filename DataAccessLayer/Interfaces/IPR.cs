@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Interfaces
 {
-    public interface IPR<CLASS>
+    public interface IPR<CLASS,ID>
     {
         List<CLASS> GetAll();
+        CLASS Get(ID id);
     }
 }

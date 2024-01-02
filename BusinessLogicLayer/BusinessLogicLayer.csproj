@@ -54,6 +54,7 @@
     <Compile Include="DTOs\EmployeeDTOs\EmployeeWithTaskDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\LeaveRequestDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\PayrollDTO.cs" />
+    <Compile Include="DTOs\EmployeeDTOs\PayslipDTO.cs" />
     <Compile Include="DTOs\EmployeeDTOs\PerformanceReviewDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Admin\AdminService.cs" />

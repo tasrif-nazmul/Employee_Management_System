@@ -24,7 +24,7 @@ namespace DataAccessLayer.DAF
             return new AssignedTaskRepo();
         }
 
-        public static IPR<Payroll> PRoleData()
+        public static IPR<Payroll,int> PRoleData()
         {
             return new PRRepo();
         }

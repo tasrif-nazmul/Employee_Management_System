@@ -30,5 +30,43 @@ namespace BusinessLogicLayer.Services.EmployeeServices
             return result;
         }
 
+
+        public static PayslipDTO GetPaySlip(int employeeId)
+        {
+            var employee = AdminDAF.EmployeeData().Get(employeeId);
+
+            if (employee != null)
+            {
+                var payroll = EmployeeDAF.PRoleData().GetAll().FirstOrDefault(e => e.EmployeeID == employeeId);
+
+                if (payroll != null)
+                {
+                    var config = new MapperConfiguration(cfg =>
+                    {
+                        cfg.CreateMap<Employee, PayslipDTO>();
+                        cfg.CreateMap<Payroll, PayslipDTO>();
+                    });
+
+                    var mapper = new Mapper(config);
+
+                    var payslip = mapper.Map<PayslipDTO>(employee);
+                    mapper.Map(payroll, payslip);
+
+                    payslip.TotalAmount = CalculateTotalAmount(payroll);
+
+                    return payslip;
+                }
+            }
+
+            return null;
+        }
+
+        private static decimal CalculateTotalAmount(Payroll payroll)
+        {
+            return (decimal)(payroll.GrossSalary + payroll.Bonus - payroll.TaxAmount);
+        }
+
+
+
     }
 }
